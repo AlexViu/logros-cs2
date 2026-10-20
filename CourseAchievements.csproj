@@ -1,0 +1,32 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+    <AssemblyName>CourseAchievements</AssemblyName>
+    <Version>1.2.0</Version>
+    <!-- La salida es la carpeta del plugin tal cual: la DLL, MySqlConnector y lang/, sin la API de CounterStrikeSharp (la trae el servidor) -->
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <GenerateDocumentationFile>false</GenerateDocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="CounterStrikeSharp.API" Version="1.0.375" ExcludeAssets="runtime" />
+    <PackageReference Include="MySqlConnector" Version="2.3.7" />
+  </ItemGroup>
+  <ItemGroup>
+    <!-- API de menús de RandomPicksHud (copiada de shared/RandomPicksHudApi del servidor). No se copia a la salida: la carga el servidor. -->
+    <Reference Include="RandomPicksHudApi">
+      <HintPath>lib\RandomPicksHudApi.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+    <!-- API de cs2-store (shared/StoreApi del servidor), para las recompensas. Tampoco se copia. -->
+    <Reference Include="StoreApi">
+      <HintPath>lib\StoreApi.dll</HintPath>
+      <Private>false</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="lang\*.json" CopyToOutputDirectory="PreserveNewest" />
+    <None Remove="addon\**" />
+  </ItemGroup>
+</Project>
