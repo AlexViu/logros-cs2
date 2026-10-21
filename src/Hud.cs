@@ -52,7 +52,13 @@ public partial class CourseAchievements
     nint _hudPtr;   // para saber si RandomPicksHud la ha cambiado por otra
     bool Shared => Config.HudMode.Equals("shared", StringComparison.OrdinalIgnoreCase);
     // HUD propia (sus paneles: aviso, seguimiento y lista). En "auto" con RandomPicksHud se usan sus menús en su lugar.
-    bool OwnHud => Config.UseHud && !(_menu is not null && Config.HudMode.Equals("auto", StringComparison.OrdinalIgnoreCase));
+    // Paneles propios de seguimiento y lista: no con RandomPicksHud en "auto" (la lista va en sus menús).
+    bool OwnPanels => Config.UseHud && !(_menu is not null && Config.HudMode.Equals("auto", StringComparison.OrdinalIgnoreCase));
+    // Aviso con copa en el layout propio (Toast = "hud"), también con RandomPicksHud.
+    bool HudToast => Config.UseHud && Config.Toast.Equals("hud", StringComparison.OrdinalIgnoreCase);
+    bool MenuToast(CCSPlayerController p) => Config.Toast.Equals("menu", StringComparison.OrdinalIgnoreCase) && MenuFor(p);
+    // Hace falta la entidad propia si se usa cualquiera de las dos cosas.
+    bool OwnHud => OwnPanels || HudToast;
 
     CCSCustomHudLayout? ForeignHud() => Utilities.FindAllEntitiesByDesignerName<CCSCustomHudLayout>("custom_hud_layout")
         .FirstOrDefault(e => e.IsValid && e.StrLayout != Config.Layout);
@@ -207,9 +213,7 @@ public partial class CourseAchievements
     {
         if (!OwnHud || p is not { IsValid: true, IsBot: false } || _hud is not { IsValid: true }) return;
         _players.TryGetValue(p.Slot, out var d);
-        Text(p, "ca_toast_head", T("hud.unlocked"));
-        PushTracker(p, d);
-        PushList(p, d);
+        if (OwnPanels) { PushTracker(p, d); PushList(p, d); }
         if (!_toastBusy.Contains(p.Slot)) Class(p, "ca_toast", "show", false);
     }
 
@@ -245,7 +249,7 @@ public partial class CourseAchievements
     // Con HUD propia, en su panel; si no, en el panel de menús de RandomPicksHud (cuando el jugador no tiene un menú abierto).
     void ShowToast(CCSPlayerController p, AchievementDef a)
     {
-        if (!OwnHud && !MenuFor(p)) return;
+        if (!HudToast && !MenuToast(p)) return;
         if (!_toastQueue.TryGetValue(p.Slot, out var q)) _toastQueue[p.Slot] = q = new();
         q.Enqueue(a);
         if (!_toastBusy.Contains(p.Slot)) NextToast(p.Slot);
@@ -258,7 +262,7 @@ public partial class CourseAchievements
             _toastBusy.Remove(slot);
             return;
         }
-        if (!OwnHud)
+        if (!HudToast)
         {
             var next = q.Dequeue();
             // Con un menú abierto no se le tapa: ese aviso se pierde (el chat ya lo ha anunciado) y se pasa al siguiente.
@@ -278,10 +282,7 @@ public partial class CourseAchievements
         }
         var a = q.Dequeue();
         _toastBusy.Add(slot);
-        Text(p, "ca_toast_head", T("hud.unlocked"));
         Text(p, "ca_toast_name", a.Name);
-        Text(p, "ca_toast_desc", a.Description);
-        Text(p, "ca_toast_pts", $"+{a.Points} {T("hud.pts")}");
         Class(p, "ca_toast", "show", true);
         AddTimer(Config.ToastSeconds, () =>
         {

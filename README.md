@@ -101,6 +101,7 @@ Los textos salen en el idioma del servidor (`ServerLanguage` en `configs/core.js
 | `Layout` | `panorama/layout/custom_game/course_achievements.xml` | Ruta del layout dentro del addon. Nombre **fuente** (`.xml`), no `.vxml_c`. |
 | `UseHud` | `true` | `false` = sin HUD: avisos y lista solo por chat. |
 | `HudMode` | `auto` | `auto`: si está RandomPicksHud, la lista y los avisos usan **sus menús** (API `IRpMenuApi`) y no se crea HUD propia; si no, HUD propia. `shared`: escribe en la entidad de RandomPicksHud con el layout combinado. `own`: siempre HUD propia. |
+| `Toast` | `hud` | Aviso al desbloquear. `hud`: copa y nombre del logro, centrado algo por encima del medio, con una barra que se vacía en 6 s (layout propio, también con RandomPicksHud). `menu`: en el panel de menús de RandomPicksHud. `chat`: solo el chat. |
 | `DefinitionsSource` | `database` | `database`: los logros se leen de la tabla `ca_achievements`. `config`: de `Achievements` en este JSON. |
 | `TrackerPosition` | `right` | Panel de seguimiento: `right`, `left` u `off`. |
 | `RefreshSeconds` | `5` | Cada cuánto se reenvía la HUD entera (CS2 la borra a quien ya estaba cuando entra otro). |

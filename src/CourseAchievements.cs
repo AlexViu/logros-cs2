@@ -370,7 +370,7 @@ public partial class CourseAchievements : BasePlugin, IPluginConfig<Achievements
         {
             if (Config.AnnounceToAll) Server.PrintToChatAll($" {T("prefix")} {T("chat.unlocked_all", p.PlayerName, a.Name, a.Points)}");
             else Chat(p, "chat.unlocked", a.Name, a.Points);
-            if (!OwnHud && !MenuFor(p)) Chat(p, "chat.unlocked_desc", a.Description);
+            if (!MenuToast(p)) Chat(p, "chat.unlocked_desc", a.Description); // el aviso con copa solo lleva el nombre
             ShowToast(p, a);
             if (Config.UnlockSound.Length > 0) p.ExecuteClientCommand($"play {Config.UnlockSound}");
         }

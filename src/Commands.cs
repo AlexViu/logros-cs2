@@ -69,7 +69,7 @@ public partial class CourseAchievements
                 done ? T("hud.done") : secret ? "" : ProgressText(a, v, t), a.Points, secret ? T("hud.secret_desc") : a.Description)}");
         }
         Chat(p, page < Pages ? "chat.more" : "chat.last", page + 1, page, Pages);
-        if (OwnHud) OpenList(p, page);
+        if (OwnPanels) OpenList(p, page);
     }
 
     string ConsoleRow(AchievementDef a, PlayerData d)
@@ -105,7 +105,7 @@ public partial class CourseAchievements
     [RequiresPermissions("@css/root")]
     public void OnDebug(CCSPlayerController? p, CommandInfo c)
     {
-        c.ReplyToCommand($"[CourseAchievements] UseHud={Config.UseHud} HudMode={Config.HudMode} RandomPicksHud menus={(_menu is null ? "no" : "yes")} ownHud={OwnHud} Layout={Config.Layout} ready={_hudReady}");
+        c.ReplyToCommand($"[CourseAchievements] UseHud={Config.UseHud} HudMode={Config.HudMode} RandomPicksHud menus={(_menu is null ? "no" : "yes")} ownHud={OwnHud} ownPanels={OwnPanels} Toast={Config.Toast} Layout={Config.Layout} ready={_hudReady}");
         c.ReplyToCommand($"[CourseAchievements] using: {(_hud is { IsValid: true } h ? $"#{h.Index} layout={h.StrLayout} own={_ownsHud} panels={h.PanelIds.Count} vars={h.DialogVariableNames.Count}" : "none")}");
         foreach (var e in Utilities.FindAllEntitiesByDesignerName<CCSCustomHudLayout>("custom_hud_layout").Where(e => e.IsValid))
             c.ReplyToCommand($"[CourseAchievements]   custom_hud_layout #{e.Index} layout={e.StrLayout}");

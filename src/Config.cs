@@ -66,6 +66,9 @@ public class AchievementsConfig : BasePluginConfig
     // cliente solo enseña una; su layout tiene que llevar los paneles de logros (randompicks_hud.xml combinado, ver README).
     // Si no hay ninguna, se crea una propia. "own": siempre una propia y sin menús de RandomPicksHud.
     [JsonPropertyName("HudMode")] public string HudMode { get; set; } = "auto";
+    // Aviso al desbloquear: "hud" = copa y nombre, centrado, en el layout propio (aunque esté RandomPicksHud);
+    // "menu" = en el panel de menús de RandomPicksHud; "chat" = solo el anuncio del chat.
+    [JsonPropertyName("Toast")] public string Toast { get; set; } = "hud";
     // "database": los logros se leen de la tabla {prefijo}achievements, que se rellena con Achievements la primera vez.
     // "config": se leen de Achievements, en este JSON.
     [JsonPropertyName("DefinitionsSource")] public string DefinitionsSource { get; set; } = "database";

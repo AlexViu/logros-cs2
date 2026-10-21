@@ -8,19 +8,19 @@
 		plugin y rellena cada Label por su variable de diálogo (mismo nombre que el id). Las etiquetas solo admiten texto plano.
 		El plugin conmuta por jugador las clases: show (aviso), hidden (paneles y filas), left (seguimiento), done (filas) y
 		w0..w10 (relleno de las barras). El panel raíz no puede llevar id.
-		Si usas RandomPicksHud, no uses este fichero: usa randompicks_hud.xml (los dos layouts juntos), ver README.
+		Con RandomPicksHud el plugin solo usa el aviso: la lista va en sus menús y el seguimiento no se muestra.
 	-->
 	<Panel class="CaHud" hittest="false">
 
-		<!-- Arriba, centrado: aviso al desbloquear un logro -->
+		<!-- Centrado, algo por encima del medio: copa + nombre del logro y una barra que se vacía mientras se ve -->
 		<Panel id="ca_toast" class="CaToast" hittest="false">
-			<Panel class="CaAccent" hittest="false" />
-			<Panel class="CaToastBody" hittest="false">
-				<Label id="ca_toast_head" class="CaToastHead" hittest="false" text="{s:ca_toast_head}" />
+			<Panel class="CaToastRow" hittest="false">
+				<Image class="CaTrophy" src="s2r://panorama/images/icons/ui/trophy.vsvg" textureheight="64" hittest="false" />
 				<Label id="ca_toast_name" class="CaToastName" hittest="false" text="{s:ca_toast_name}" />
-				<Label id="ca_toast_desc" class="CaToastDesc" hittest="false" text="{s:ca_toast_desc}" />
 			</Panel>
-			<Label id="ca_toast_pts" class="CaToastPts" hittest="false" text="{s:ca_toast_pts}" />
+			<Panel class="CaToastBarBg" hittest="false">
+				<Panel class="CaToastBar" hittest="false" />
+			</Panel>
 		</Panel>
 
 		<!-- Lateral: logros conseguidos, puntos y el siguiente logro con su progreso -->
