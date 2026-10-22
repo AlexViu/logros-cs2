@@ -1,16 +1,8 @@
 <root>
 	<styles>
 		<include src="file://{resources}/styles/custom_game/randompicks_hud.css" />
-		<include src="file://{resources}/styles/custom_game/course_achievements.css" />
 	</styles>
-
-	<!--
-		HUD Panorama de Random Picks (surf, bhop, minigames...). La entidad custom_hud_layout la crea el plugin RandomPicksHud
-		y rellena cada Label por su variable de diálogo (mismo nombre que el id). Las etiquetas solo admiten
-		texto plano. Los dos paneles empiezan ocultos: el plugin quita la clase "hidden" cuando tiene datos. El panel raíz no puede llevar id.
-	-->
 	<Panel class="RpHud" hittest="false">
-
 		<Panel id="rp_left" class="Side SideLeft hidden" hittest="false">
 			<Label id="rp_map" class="MapName" hittest="false" text="{s:rp_map}" />
 			<Panel class="Row" hittest="false">
@@ -47,7 +39,6 @@
 				<Label id="rp_fin" class="Val" hittest="false" text="{s:rp_fin}" />
 			</Panel>
 		</Panel>
-
 		<Panel id="rp_right" class="Side SideRight hidden" hittest="false">
 			<Panel class="Row Head" hittest="false">
 				<Label class="Title" hittest="false" text="MAP TOP" />
@@ -84,8 +75,6 @@
 				<Label id="rp_top_4_time" class="Val Time" hittest="false" text="{s:rp_top_4_time}" />
 			</Panel>
 		</Panel>
-
-		<!-- Abajo, centrado: velocidad actual y cronómetro (se actualizan varias veces por segundo) -->
 		<Panel id="rp_bottom" class="Bottom hidden" hittest="false">
 			<Panel class="Row Big" hittest="false">
 				<Panel class="Stat" hittest="false">
@@ -100,148 +89,70 @@
 			</Panel>
 			<Label id="rp_keys" class="Keys Mono" hittest="false" text="{s:rp_keys}" />
 		</Panel>
-
-	</Panel>
-	<!-- Logros (CourseAchievements): panel hermano de la HUD de RandomPicksHud, en la misma entidad custom_hud_layout -->
-	<Panel class="CaHud" hittest="false">
-
-		<!-- Arriba, centrado: aviso al desbloquear un logro -->
+		<Panel id="rp_menu" class="Menu" hittest="false">
+			<Label id="rp_menu_brand" class="MBrand empty" hittest="false" text="{s:rp_menu_brand}" />
+			<Panel class="MHead" hittest="false">
+				<Label id="rp_menu_title" class="MTitle" hittest="false" text="{s:rp_menu_title}" />
+				<Label id="rp_menu_page" class="MPage empty" hittest="false" text="{s:rp_menu_page}" />
+			</Panel>
+			<Label id="rp_menu_sub" class="MSub empty" hittest="false" text="{s:rp_menu_sub}" />
+			<Panel class="MDivider" hittest="false" />
+			<Panel class="MRows" hittest="false">
+				<Panel id="rp_menu_r0" class="MRow hidden" hittest="false">
+					<Label class="MKey" hittest="false" text="1" />
+					<Label id="rp_menu_r0_text" class="MText" hittest="false" text="{s:rp_menu_r0_text}" />
+					<Label id="rp_menu_r0_val" class="MVal empty" hittest="false" text="{s:rp_menu_r0_val}" />
+				</Panel>
+				<Panel id="rp_menu_r1" class="MRow hidden" hittest="false">
+					<Label class="MKey" hittest="false" text="2" />
+					<Label id="rp_menu_r1_text" class="MText" hittest="false" text="{s:rp_menu_r1_text}" />
+					<Label id="rp_menu_r1_val" class="MVal empty" hittest="false" text="{s:rp_menu_r1_val}" />
+				</Panel>
+				<Panel id="rp_menu_r2" class="MRow hidden" hittest="false">
+					<Label class="MKey" hittest="false" text="3" />
+					<Label id="rp_menu_r2_text" class="MText" hittest="false" text="{s:rp_menu_r2_text}" />
+					<Label id="rp_menu_r2_val" class="MVal empty" hittest="false" text="{s:rp_menu_r2_val}" />
+				</Panel>
+				<Panel id="rp_menu_r3" class="MRow hidden" hittest="false">
+					<Label class="MKey" hittest="false" text="4" />
+					<Label id="rp_menu_r3_text" class="MText" hittest="false" text="{s:rp_menu_r3_text}" />
+					<Label id="rp_menu_r3_val" class="MVal empty" hittest="false" text="{s:rp_menu_r3_val}" />
+				</Panel>
+				<Panel id="rp_menu_r4" class="MRow hidden" hittest="false">
+					<Label class="MKey" hittest="false" text="5" />
+					<Label id="rp_menu_r4_text" class="MText" hittest="false" text="{s:rp_menu_r4_text}" />
+					<Label id="rp_menu_r4_val" class="MVal empty" hittest="false" text="{s:rp_menu_r4_val}" />
+				</Panel>
+				<Panel id="rp_menu_r5" class="MRow hidden" hittest="false">
+					<Label class="MKey" hittest="false" text="6" />
+					<Label id="rp_menu_r5_text" class="MText" hittest="false" text="{s:rp_menu_r5_text}" />
+					<Label id="rp_menu_r5_val" class="MVal empty" hittest="false" text="{s:rp_menu_r5_val}" />
+				</Panel>
+				<Panel id="rp_menu_r6" class="MRow hidden" hittest="false">
+					<Label class="MKey" hittest="false" text="7" />
+					<Label id="rp_menu_r6_text" class="MText" hittest="false" text="{s:rp_menu_r6_text}" />
+					<Label id="rp_menu_r6_val" class="MVal empty" hittest="false" text="{s:rp_menu_r6_val}" />
+				</Panel>
+				<Panel id="rp_menu_r7" class="MRow hidden" hittest="false">
+					<Label class="MKey" hittest="false" text="8" />
+					<Label id="rp_menu_r7_text" class="MText" hittest="false" text="{s:rp_menu_r7_text}" />
+					<Label id="rp_menu_r7_val" class="MVal empty" hittest="false" text="{s:rp_menu_r7_val}" />
+				</Panel>
+			</Panel>
+			<Panel id="rp_menu_bar" class="MBar hidden" hittest="false">
+				<Panel class="MFill" hittest="false" />
+			</Panel>
+			<Label id="rp_menu_hint" class="MHint" hittest="false" text="{s:rp_menu_hint}" />
+		</Panel>
+		<!-- CourseAchievements: aviso al conseguir un logro (copa + nombre y una barra que se vacía mientras se ve) -->
 		<Panel id="ca_toast" class="CaToast" hittest="false">
-			<Panel class="CaAccent" hittest="false" />
-			<Panel class="CaToastBody" hittest="false">
-				<Label id="ca_toast_head" class="CaToastHead" hittest="false" text="{s:ca_toast_head}" />
+			<Panel class="CaToastRow" hittest="false">
+				<Image class="CaTrophy" src="s2r://panorama/images/icons/ui/trophy.vsvg" textureheight="64" hittest="false" />
 				<Label id="ca_toast_name" class="CaToastName" hittest="false" text="{s:ca_toast_name}" />
-				<Label id="ca_toast_desc" class="CaToastDesc" hittest="false" text="{s:ca_toast_desc}" />
 			</Panel>
-			<Label id="ca_toast_pts" class="CaToastPts" hittest="false" text="{s:ca_toast_pts}" />
-		</Panel>
-
-		<!-- Lateral: logros conseguidos, puntos y el siguiente logro con su progreso -->
-		<Panel id="ca_tracker" class="CaTracker hidden" hittest="false">
-			<Panel class="CaRow" hittest="false">
-				<Label id="ca_trk_title" class="CaSection" hittest="false" text="{s:ca_trk_title}" />
-				<Label id="ca_trk_count" class="CaVal CaCount" hittest="false" text="{s:ca_trk_count}" />
-				<Label id="ca_trk_score" class="CaVal CaGold CaScore" hittest="false" text="{s:ca_trk_score}" />
-			</Panel>
-			<Label id="ca_trk_next_label" class="CaLbl CaNextLbl" hittest="false" text="{s:ca_trk_next_label}" />
-			<Label id="ca_trk_next" class="CaVal CaNextName" hittest="false" text="{s:ca_trk_next}" />
-			<Panel class="CaRow CaBarRow" hittest="false">
-				<Panel class="CaBarBg CaTrackerBar" hittest="false">
-					<Panel id="ca_trk_bar" class="CaBarFill w0" hittest="false" />
-				</Panel>
-				<Label id="ca_trk_prog" class="CaLbl CaProg" hittest="false" text="{s:ca_trk_prog}" />
+			<Panel class="CaToastBarBg" hittest="false">
+				<Panel class="CaToastBar" hittest="false" />
 			</Panel>
 		</Panel>
-
-		<!-- Centro: lista de logros por páginas (!logros) -->
-		<Panel id="ca_list" class="CaList hidden" hittest="false">
-			<Panel class="CaRow CaListHead" hittest="false">
-				<Label id="ca_list_title" class="CaTitle" hittest="false" text="{s:ca_list_title}" />
-				<Label id="ca_list_sub" class="CaSub CaRight" hittest="false" text="{s:ca_list_sub}" />
-			</Panel>
-			<Panel class="CaDivider" hittest="false" />
-			<Panel id="ca_row_0" class="CaEntry hidden" hittest="false">
-				<Panel class="CaDot" hittest="false" />
-				<Panel class="CaEntryText" hittest="false">
-					<Label id="ca_row_0_name" class="CaEntryName" hittest="false" text="{s:ca_row_0_name}" />
-					<Label id="ca_row_0_desc" class="CaEntryDesc" hittest="false" text="{s:ca_row_0_desc}" />
-				</Panel>
-				<Panel class="CaEntryProg" hittest="false">
-					<Label id="ca_row_0_prog" class="CaLbl" hittest="false" text="{s:ca_row_0_prog}" />
-					<Panel class="CaBarBg" hittest="false"><Panel id="ca_row_0_bar" class="CaBarFill w0" hittest="false" /></Panel>
-				</Panel>
-				<Label id="ca_row_0_pts" class="CaEntryPts" hittest="false" text="{s:ca_row_0_pts}" />
-			</Panel>
-			<Panel id="ca_row_1" class="CaEntry hidden" hittest="false">
-				<Panel class="CaDot" hittest="false" />
-				<Panel class="CaEntryText" hittest="false">
-					<Label id="ca_row_1_name" class="CaEntryName" hittest="false" text="{s:ca_row_1_name}" />
-					<Label id="ca_row_1_desc" class="CaEntryDesc" hittest="false" text="{s:ca_row_1_desc}" />
-				</Panel>
-				<Panel class="CaEntryProg" hittest="false">
-					<Label id="ca_row_1_prog" class="CaLbl" hittest="false" text="{s:ca_row_1_prog}" />
-					<Panel class="CaBarBg" hittest="false"><Panel id="ca_row_1_bar" class="CaBarFill w0" hittest="false" /></Panel>
-				</Panel>
-				<Label id="ca_row_1_pts" class="CaEntryPts" hittest="false" text="{s:ca_row_1_pts}" />
-			</Panel>
-			<Panel id="ca_row_2" class="CaEntry hidden" hittest="false">
-				<Panel class="CaDot" hittest="false" />
-				<Panel class="CaEntryText" hittest="false">
-					<Label id="ca_row_2_name" class="CaEntryName" hittest="false" text="{s:ca_row_2_name}" />
-					<Label id="ca_row_2_desc" class="CaEntryDesc" hittest="false" text="{s:ca_row_2_desc}" />
-				</Panel>
-				<Panel class="CaEntryProg" hittest="false">
-					<Label id="ca_row_2_prog" class="CaLbl" hittest="false" text="{s:ca_row_2_prog}" />
-					<Panel class="CaBarBg" hittest="false"><Panel id="ca_row_2_bar" class="CaBarFill w0" hittest="false" /></Panel>
-				</Panel>
-				<Label id="ca_row_2_pts" class="CaEntryPts" hittest="false" text="{s:ca_row_2_pts}" />
-			</Panel>
-			<Panel id="ca_row_3" class="CaEntry hidden" hittest="false">
-				<Panel class="CaDot" hittest="false" />
-				<Panel class="CaEntryText" hittest="false">
-					<Label id="ca_row_3_name" class="CaEntryName" hittest="false" text="{s:ca_row_3_name}" />
-					<Label id="ca_row_3_desc" class="CaEntryDesc" hittest="false" text="{s:ca_row_3_desc}" />
-				</Panel>
-				<Panel class="CaEntryProg" hittest="false">
-					<Label id="ca_row_3_prog" class="CaLbl" hittest="false" text="{s:ca_row_3_prog}" />
-					<Panel class="CaBarBg" hittest="false"><Panel id="ca_row_3_bar" class="CaBarFill w0" hittest="false" /></Panel>
-				</Panel>
-				<Label id="ca_row_3_pts" class="CaEntryPts" hittest="false" text="{s:ca_row_3_pts}" />
-			</Panel>
-			<Panel id="ca_row_4" class="CaEntry hidden" hittest="false">
-				<Panel class="CaDot" hittest="false" />
-				<Panel class="CaEntryText" hittest="false">
-					<Label id="ca_row_4_name" class="CaEntryName" hittest="false" text="{s:ca_row_4_name}" />
-					<Label id="ca_row_4_desc" class="CaEntryDesc" hittest="false" text="{s:ca_row_4_desc}" />
-				</Panel>
-				<Panel class="CaEntryProg" hittest="false">
-					<Label id="ca_row_4_prog" class="CaLbl" hittest="false" text="{s:ca_row_4_prog}" />
-					<Panel class="CaBarBg" hittest="false"><Panel id="ca_row_4_bar" class="CaBarFill w0" hittest="false" /></Panel>
-				</Panel>
-				<Label id="ca_row_4_pts" class="CaEntryPts" hittest="false" text="{s:ca_row_4_pts}" />
-			</Panel>
-			<Panel id="ca_row_5" class="CaEntry hidden" hittest="false">
-				<Panel class="CaDot" hittest="false" />
-				<Panel class="CaEntryText" hittest="false">
-					<Label id="ca_row_5_name" class="CaEntryName" hittest="false" text="{s:ca_row_5_name}" />
-					<Label id="ca_row_5_desc" class="CaEntryDesc" hittest="false" text="{s:ca_row_5_desc}" />
-				</Panel>
-				<Panel class="CaEntryProg" hittest="false">
-					<Label id="ca_row_5_prog" class="CaLbl" hittest="false" text="{s:ca_row_5_prog}" />
-					<Panel class="CaBarBg" hittest="false"><Panel id="ca_row_5_bar" class="CaBarFill w0" hittest="false" /></Panel>
-				</Panel>
-				<Label id="ca_row_5_pts" class="CaEntryPts" hittest="false" text="{s:ca_row_5_pts}" />
-			</Panel>
-			<Panel id="ca_row_6" class="CaEntry hidden" hittest="false">
-				<Panel class="CaDot" hittest="false" />
-				<Panel class="CaEntryText" hittest="false">
-					<Label id="ca_row_6_name" class="CaEntryName" hittest="false" text="{s:ca_row_6_name}" />
-					<Label id="ca_row_6_desc" class="CaEntryDesc" hittest="false" text="{s:ca_row_6_desc}" />
-				</Panel>
-				<Panel class="CaEntryProg" hittest="false">
-					<Label id="ca_row_6_prog" class="CaLbl" hittest="false" text="{s:ca_row_6_prog}" />
-					<Panel class="CaBarBg" hittest="false"><Panel id="ca_row_6_bar" class="CaBarFill w0" hittest="false" /></Panel>
-				</Panel>
-				<Label id="ca_row_6_pts" class="CaEntryPts" hittest="false" text="{s:ca_row_6_pts}" />
-			</Panel>
-			<Panel id="ca_row_7" class="CaEntry hidden" hittest="false">
-				<Panel class="CaDot" hittest="false" />
-				<Panel class="CaEntryText" hittest="false">
-					<Label id="ca_row_7_name" class="CaEntryName" hittest="false" text="{s:ca_row_7_name}" />
-					<Label id="ca_row_7_desc" class="CaEntryDesc" hittest="false" text="{s:ca_row_7_desc}" />
-				</Panel>
-				<Panel class="CaEntryProg" hittest="false">
-					<Label id="ca_row_7_prog" class="CaLbl" hittest="false" text="{s:ca_row_7_prog}" />
-					<Panel class="CaBarBg" hittest="false"><Panel id="ca_row_7_bar" class="CaBarFill w0" hittest="false" /></Panel>
-				</Panel>
-				<Label id="ca_row_7_pts" class="CaEntryPts" hittest="false" text="{s:ca_row_7_pts}" />
-			</Panel>
-			<Panel class="CaDivider" hittest="false" />
-			<Panel class="CaRow" hittest="false">
-				<Label id="ca_list_page" class="CaLbl" hittest="false" text="{s:ca_list_page}" />
-				<Label id="ca_list_hint" class="CaLbl CaRight CaHint" hittest="false" text="{s:ca_list_hint}" />
-			</Panel>
-		</Panel>
-
 	</Panel>
 </root>

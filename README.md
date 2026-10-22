@@ -32,26 +32,27 @@ del juego, sin parpadeos y sin tapar el chat.
 ### 1. Layout de la HUD (addon de Workshop)
 
 El cliente de CS2 solo enseña **una** `custom_hud_layout`. Con RandomPicksHud en el servidor (versión con menús, que
-trae `shared/RandomPicksHudApi`), lo normal es `"HudMode": "auto"`: **no hay que tocar ningún addon**. La lista de
-`!logros` es un menú de RandomPicksHud (se mueve con sus teclas, y al elegir un logro se ve su detalle) y el aviso de
-logro desbloqueado se dibuja en su panel de menús. Lo que se pierde es el panel de seguimiento lateral.
+trae `shared/RandomPicksHudApi`), la lista de `!logros` es un menú de RandomPicksHud (se mueve con sus teclas, y al
+elegir un logro se ve su detalle). El panel de seguimiento lateral no se usa.
 
-Si quieres además el panel de seguimiento y el aviso propio, usa `"HudMode": "shared"` con el layout combinado.
-Ojo: `addon-randompicks/…/randompicks_hud.xml` está hecho sobre el RandomPicksHud **de GitHub (sin menús)**; para la
-versión con menús hay que combinar su layout actual, o se perderían los menús.
+Para el aviso centrado con la copa, usa `"HudMode": "shared"`: el plugin escribe en la entidad de RandomPicksHud, cuyo
+layout tiene que llevar el aviso. En tu addon de Workshop:
 
-**Modo `shared`**, en tu addon de Workshop:
-
-1. Sustituye `panorama/layout/custom_game/randompicks_hud.xml` por el de `addon-randompicks/panorama/layout/custom_game/randompicks_hud.xml`
-   de este repositorio. Es el layout de RandomPicksHud **sin cambios** más un panel `CaHud` con los logros.
-2. Añade `addon/panorama/styles/custom_game/course_achievements.css` en `panorama/styles/custom_game/`.
-3. Compila el layout desde `game\bin\win64` de CS2 (compila también el CSS que incluye) y republica el addon:
+1. Copia `addon-randompicks/panorama/layout/custom_game/randompicks_hud.xml` y
+   `addon-randompicks/panorama/styles/custom_game/randompicks_hud.css` a `content\csgo_addons\<tu_addon>\panorama\…`.
+   Son el layout y el CSS de RandomPicksHud **con menús** (descompilados del addon publicado) **sin cambios**, más el
+   panel `ca_toast` y sus estilos `.CaToast*` al final.
+2. Compila el layout desde `game\bin\win64` de CS2 (compila también el CSS que incluye) y republica el addon:
 
 ```
 resourcecompiler.exe -nop4 -i "<CS2>\content\csgo_addons\<tu_addon>\panorama\layout\custom_game\randompicks_hud.xml"
 ```
 
-No hay que tocar la configuración de RandomPicksHud: su `Layout` sigue siendo `randompicks_hud.xml`.
+No hay que tocar la configuración de RandomPicksHud: su `Layout` sigue siendo `randompicks_hud.xml`. Si actualizas
+RandomPicksHud y cambia su layout, vuelve a añadirle el bloque `ca_toast` y los estilos `.CaToast*`.
+
+Sin tocar el addon, `"HudMode": "auto"` con `"Toast": "menu"` dibuja el aviso en el panel de menús de RandomPicksHud
+(abajo en el centro, sin copa).
 
 **Sin RandomPicksHud**: publica `addon/panorama/` (layout `course_achievements.xml` y su CSS) en un addon, compila
 `course_achievements.xml` y añade el ID del addon a `mm_extra_addons` y `mm_client_extra_addons` en
@@ -83,12 +84,12 @@ Los textos salen en el idioma del servidor (`ServerLanguage` en `configs/core.js
 
 | Comando | Quién | Qué hace |
 |---|---|---|
-| `!logros` / `!achievements` | Todos | Escribe en el chat cuántos llevas, el siguiente y la primera página (8 logros), y la abre en la HUD. Si la HUD ya está abierta, la cierra. |
+| `!logros` / `!ach` | Todos | Escribe en el chat cuántos llevas, el siguiente y la primera página (8 logros), y la abre en la HUD. Si la HUD ya está abierta, la cierra. |
 | `!logros <página>` | Todos | Esa página, en el chat y en la HUD |
 | `!logros todos` | Todos | La lista entera, con progreso, en la consola del jugador |
 | `!logros cerrar` | Todos | Cierra la lista de la HUD |
-| `!toplogros` / `!topachievements` | Todos | Top 10 por puntos de logros |
-| `!logroshud` | Todos | Oculta o muestra el panel de seguimiento |
+| `!toplogros` / `!topach` | Todos | Top 10 por puntos de logros |
+| `!logroshud` / `!achhud` | Todos | Oculta o muestra el panel de seguimiento |
 | `css_logro_give <objetivo> <id>` | `@css/root` | Da un logro (para probar) |
 | `css_logro_revoke <objetivo> <id\|all>` | `@css/root` | Quita un logro o todos. Los que el jugador siga cumpliendo se le vuelven a dar al reconectar. |
 | `css_logros_reload` | `@css/root` | Vuelve a leer los logros de la tabla `ca_achievements` (tras editarla) |
@@ -100,7 +101,7 @@ Los textos salen en el idioma del servidor (`ServerLanguage` en `configs/core.js
 |---|---|---|
 | `Layout` | `panorama/layout/custom_game/course_achievements.xml` | Ruta del layout dentro del addon. Nombre **fuente** (`.xml`), no `.vxml_c`. |
 | `UseHud` | `true` | `false` = sin HUD: avisos y lista solo por chat. |
-| `HudMode` | `auto` | `auto`: si está RandomPicksHud, la lista y los avisos usan **sus menús** (API `IRpMenuApi`) y no se crea HUD propia; si no, HUD propia. `shared`: escribe en la entidad de RandomPicksHud con el layout combinado. `own`: siempre HUD propia. |
+| `HudMode` | `auto` | `auto`: con RandomPicksHud, la lista va en **sus menús** y se crea una HUD propia solo para el aviso (que el cliente no llega a enseñar junto a la suya); sin él, HUD propia completa. `shared`: el aviso se escribe en la entidad de RandomPicksHud (su layout tiene que llevar `ca_toast`, ver arriba). `own`: siempre HUD propia con todos sus paneles. |
 | `Toast` | `hud` | Aviso al desbloquear. `hud`: copa y nombre del logro, centrado algo por encima del medio, con una barra que se vacía en 6 s (layout propio, también con RandomPicksHud). `menu`: en el panel de menús de RandomPicksHud. `chat`: solo el chat. |
 | `DefinitionsSource` | `database` | `database`: los logros se leen de la tabla `ca_achievements`. `config`: de `Achievements` en este JSON. |
 | `TrackerPosition` | `right` | Panel de seguimiento: `right`, `left` u `off`. |

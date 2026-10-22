@@ -12,7 +12,7 @@ public partial class CourseAchievements
     // !logros <página>   abre esa página
     // !logros cerrar     la cierra
     [ConsoleCommand("css_logros", "Achievements list: !logros [page|close]")]
-    [ConsoleCommand("css_achievements", "Achievements list: !achievements [page|close]")]
+    [ConsoleCommand("css_ach", "Achievements list: !ach [page|close]")]
     [CommandHelper(whoCanExecute: CommandUsage.CLIENT_ONLY)]
     public void OnList(CCSPlayerController? p, CommandInfo c)
     {
@@ -115,7 +115,7 @@ public partial class CourseAchievements
     }
 
     [ConsoleCommand("css_toplogros", "Top players by achievement points")]
-    [ConsoleCommand("css_topachievements", "Top players by achievement points")]
+    [ConsoleCommand("css_topach", "Top players by achievement points")]
     public void OnTop(CCSPlayerController? p, CommandInfo c)
     {
         if (_db is not { } db) return;
@@ -140,6 +140,7 @@ public partial class CourseAchievements
 
     // Muestra u oculta el panel de seguimiento (solo para quien lo usa y hasta que se vaya).
     [ConsoleCommand("css_logroshud", "Show or hide the achievement tracker")]
+    [ConsoleCommand("css_achhud", "Show or hide the achievement tracker")]
     [CommandHelper(whoCanExecute: CommandUsage.CLIENT_ONLY)]
     public void OnToggleHud(CCSPlayerController? p, CommandInfo c)
     {

@@ -51,9 +51,9 @@ public partial class CourseAchievements
     bool _ownsHud;  // la entidad la creó este plugin (y la borra al descargarse)
     nint _hudPtr;   // para saber si RandomPicksHud la ha cambiado por otra
     bool Shared => Config.HudMode.Equals("shared", StringComparison.OrdinalIgnoreCase);
-    // HUD propia (sus paneles: aviso, seguimiento y lista). En "auto" con RandomPicksHud se usan sus menús en su lugar.
-    // Paneles propios de seguimiento y lista: no con RandomPicksHud en "auto" (la lista va en sus menús).
-    bool OwnPanels => Config.UseHud && !(_menu is not null && Config.HudMode.Equals("auto", StringComparison.OrdinalIgnoreCase));
+    // Paneles de seguimiento y lista: solo sin RandomPicksHud o en "own" (con él, la lista va en sus menús y su layout
+    // combinado solo lleva el aviso).
+    bool OwnPanels => Config.UseHud && (_menu is null || Config.HudMode.Equals("own", StringComparison.OrdinalIgnoreCase));
     // Aviso con copa en el layout propio (Toast = "hud"), también con RandomPicksHud.
     bool HudToast => Config.UseHud && Config.Toast.Equals("hud", StringComparison.OrdinalIgnoreCase);
     bool MenuToast(CCSPlayerController p) => Config.Toast.Equals("menu", StringComparison.OrdinalIgnoreCase) && MenuFor(p);
