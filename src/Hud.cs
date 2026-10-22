@@ -72,14 +72,15 @@ public partial class CourseAchievements
 
     void WatchHud()
     {
-        if (!OwnHud || !_hudReady || _hud is null) return;
-        if (Shared && (_ownsHud || !_hud.IsValid) && ForeignHud() is { } foreign)
+        if (!OwnHud || !_hudReady) return;
+        if (Shared && (_hud is null || _ownsHud || !_hud.IsValid) && ForeignHud() is { } foreign)
         {
-            if (_ownsHud && _hud.IsValid) _hud.Remove();
+            if (_ownsHud && _hud is { IsValid: true }) _hud.Remove();
             Adopt(foreign);
             PushAll();
             return;
         }
+        if (_hud is null) return;
         if (_hud.IsValid && _hud.Handle == _hudPtr) return;
         _hud = null; // la que usábamos ya no existe: EnsureHud busca la nueva (o crea una)
         PushAll();
@@ -140,8 +141,11 @@ public partial class CourseAchievements
     {
         if (_hud is { IsValid: true }) return true;
         if (!_hudReady) return false;
-        if (Shared && ForeignHud() is { } foreign)
+        if (Shared)
         {
+            // Nunca una propia: el cliente se queda con la primera custom_hud_layout que ve y, si después desaparece,
+            // no enseña ninguna (ni la de RandomPicksHud). Se espera a la suya; WatchHud la recoge cuando aparece.
+            if (ForeignHud() is not { } foreign) return false;
             Adopt(foreign);
             return true;
         }
