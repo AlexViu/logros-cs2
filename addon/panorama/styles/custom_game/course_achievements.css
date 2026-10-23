@@ -110,11 +110,11 @@
 	flow-children: down;
 	horizontal-align: center;
 	vertical-align: top;
-	margin-top: 30%;
-	min-width: 360px;
-	max-width: 760px;
+	margin-top: 20%;
+	min-width: 280px;
+	max-width: 640px;
 	background-color: #0b0f17dd;
-	border-radius: 6px;
+	border-radius: 4px;
 	opacity: 0;
 	transform: translateY( 16px ) scale3d( 0.96, 0.96, 1 );
 	transition-property: opacity, transform;
@@ -132,25 +132,25 @@
 {
 	flow-children: right;
 	horizontal-align: center;
-	margin: 14px 24px 12px 20px;
+	margin: 7px 18px 6px 14px;
 }
 
 .CaTrophy
 {
-	width: 40px;
-	height: 40px;
+	width: 24px;
+	height: 24px;
 	vertical-align: center;
 	wash-color: #E6C068;
-	margin-right: 14px;
+	margin-right: 10px;
 }
 
 .CaHud .CaToastName
 {
-	font-size: 28px;
+	font-size: 20px;
 	font-weight: bold;
 	color: #ECEFF4;
 	vertical-align: center;
-	max-width: 660px;
+	max-width: 560px;
 	text-overflow: shrink;
 }
 
@@ -159,7 +159,7 @@
 .CaToastBarBg
 {
 	width: 100%;
-	height: 3px;
+	height: 2px;
 	background-color: #ffffff1a;
 }
 
