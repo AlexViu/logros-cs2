@@ -15,7 +15,7 @@
 		<!-- Centrado, algo por encima del medio: copa + nombre del logro y una barra que se vacía mientras se ve -->
 		<Panel id="ca_toast" class="CaToast" hittest="false">
 			<Panel class="CaToastRow" hittest="false">
-				<Image class="CaTrophy" src="s2r://panorama/images/icons/ui/trophy.vsvg" textureheight="64" hittest="false" />
+				<Image class="CaTrophy" src="s2r://panorama/images/icons/ui/trophy.vsvg" hittest="false" />
 				<Label id="ca_toast_name" class="CaToastName" hittest="false" text="{s:ca_toast_name}" />
 			</Panel>
 			<Panel class="CaToastBarBg" hittest="false">
