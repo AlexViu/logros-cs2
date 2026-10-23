@@ -669,3 +669,480 @@ Label
 	transition-duration: 6s;
 	transition-timing-function: linear;
 }
+
+/* StoreHud: tienda de cs2-store. Centrada; colores de la HUD (dorado #E6C068). */
+
+.StStore
+{
+	horizontal-align: center;
+	vertical-align: center;
+	width: 1120px;
+	height: 640px;
+	flow-children: down;
+	background-color: #0d1017f2;
+	border: 1px solid #E6C06855;
+	border-radius: 10px;
+	box-shadow: #000000b0 0px 10px 40px 0px;
+}
+
+.StStore Label
+{
+	text-shadow: none;
+}
+
+.StFillW
+{
+	width: fill-parent-flow( 1.0 );
+	height: 1px;
+}
+
+.StFillH
+{
+	height: fill-parent-flow( 1.0 );
+	width: 1px;
+}
+
+.StHead
+{
+	width: 100%;
+	height: 84px;
+	flow-children: right;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-bottom: 1px solid #ffffff14;
+}
+
+.StLogo
+{
+	width: 52px;
+	height: 52px;
+	vertical-align: center;
+	border-radius: 10px;
+	background-color: #E6C068;
+}
+
+.StLogoIcon
+{
+	width: 30px;
+	height: 30px;
+	horizontal-align: center;
+	vertical-align: center;
+	wash-color: #1a1408;
+}
+
+.StTitleCol
+{
+	flow-children: down;
+	vertical-align: center;
+	margin-left: 14px;
+}
+
+.StTitle
+{
+	font-size: 26px;
+	font-weight: bold;
+	letter-spacing: 3px;
+	color: #ECEFF4;
+}
+
+.StPlayer
+{
+	font-size: 14px;
+	color: #8A93A3;
+}
+
+.StCredits
+{
+	flow-children: right;
+	vertical-align: center;
+	margin-left: 24px;
+	padding: 6px 14px 6px 12px;
+	border-radius: 8px;
+	background-color: #E6C06822;
+	border: 1px solid #E6C06866;
+}
+
+.StCoin
+{
+	width: 18px;
+	height: 18px;
+	vertical-align: center;
+	wash-color: #E6C068;
+	margin-right: 8px;
+}
+
+.StCreditsText
+{
+	font-size: 17px;
+	font-weight: bold;
+	color: #E6C068;
+	vertical-align: center;
+}
+
+.StTabs
+{
+	flow-children: right;
+	vertical-align: center;
+	padding: 4px;
+	border-radius: 8px;
+	background-color: #ffffff0a;
+	border: 1px solid #ffffff14;
+}
+
+.StTab
+{
+	font-size: 14px;
+	font-weight: bold;
+	letter-spacing: 1px;
+	color: #A7B1C2;
+	padding: 8px 18px;
+	border-radius: 6px;
+	border: 2px solid #00000000;
+}
+
+.StTab.active
+{
+	background-color: #E6C068;
+	color: #15110a;
+}
+
+.StTab.sel
+{
+	border: 2px solid #ECEFF4;
+}
+
+.StClose
+{
+	vertical-align: center;
+	margin-left: 14px;
+	font-size: 13px;
+	font-weight: bold;
+	color: #8A93A3;
+	padding: 8px 12px;
+	border-radius: 6px;
+	background-color: #ffffff0a;
+}
+
+.StBody
+{
+	width: 100%;
+	height: fill-parent-flow( 1.0 );
+	flow-children: right;
+}
+
+.StSide
+{
+	width: 250px;
+	height: 100%;
+	flow-children: down;
+	padding: 14px 10px;
+	border-right: 1px solid #ffffff14;
+}
+
+.StCat
+{
+	width: 100%;
+	height: 40px;
+	flow-children: right;
+	padding-left: 12px;
+	padding-right: 12px;
+	margin-bottom: 4px;
+	border-radius: 6px;
+	border-left: 3px solid #00000000;
+}
+
+.StCat.active
+{
+	background-color: #E6C0681f;
+	border-left: 3px solid #E6C068;
+}
+
+.StCat.sel
+{
+	background-color: #E6C06845;
+}
+
+.StIcon
+{
+	width: 20px;
+	height: 20px;
+	vertical-align: center;
+	margin-right: 12px;
+}
+
+.StImg
+{
+	width: 20px;
+	height: 20px;
+	visibility: collapse;
+	wash-color: #A7B1C2;
+}
+
+.ic_player .IcPlayer,
+.ic_shield .IcShield,
+.ic_trail .IcTrail,
+.ic_wings .IcWings,
+.ic_tag .IcTag,
+.ic_star .IcStar
+{
+	visibility: visible;
+}
+
+.StCat.active .StImg
+{
+	wash-color: #E6C068;
+}
+
+.StCatName
+{
+	font-size: 16px;
+	color: #D5DBE5;
+	vertical-align: center;
+	width: fill-parent-flow( 1.0 );
+	text-overflow: shrink;
+}
+
+.StCat.active .StCatName
+{
+	color: #ECEFF4;
+	font-weight: bold;
+}
+
+.StCatCount
+{
+	font-size: 13px;
+	color: #6E7787;
+	vertical-align: center;
+}
+
+.StMain
+{
+	width: fill-parent-flow( 1.0 );
+	height: 100%;
+	flow-children: down;
+	padding: 16px 20px;
+}
+
+.StSectRow
+{
+	flow-children: right;
+	margin-bottom: 12px;
+}
+
+.StSect
+{
+	font-size: 19px;
+	font-weight: bold;
+	letter-spacing: 2px;
+	text-transform: uppercase;
+	color: #ECEFF4;
+}
+
+.StSectN
+{
+	font-size: 14px;
+	color: #8A93A3;
+	margin-left: 10px;
+	vertical-align: bottom;
+}
+
+.StEmpty
+{
+	font-size: 16px;
+	color: #8A93A3;
+	margin-top: 40px;
+	horizontal-align: center;
+}
+
+.StRow
+{
+	flow-children: right;
+	margin-bottom: 12px;
+}
+
+.StCard
+{
+	width: 254px;
+	height: 108px;
+	margin-right: 12px;
+	flow-children: down;
+	padding: 12px 14px;
+	border-radius: 8px;
+	background-color: #ffffff08;
+	border: 1px solid #ffffff14;
+}
+
+.StCard.sel
+{
+	background-color: #E6C06814;
+	border: 1px solid #E6C068;
+}
+
+.StCardTop
+{
+	flow-children: right;
+	width: 100%;
+}
+
+.StCardIcon
+{
+	width: 34px;
+	height: 34px;
+	border-radius: 6px;
+	background-color: #ffffff0d;
+	margin-right: 12px;
+}
+
+.StCardIcon .StImg
+{
+	width: 18px;
+	height: 18px;
+	horizontal-align: center;
+	vertical-align: center;
+}
+
+.StCard.sel .StCardIcon .StImg
+{
+	wash-color: #E6C068;
+}
+
+.StCardText
+{
+	flow-children: down;
+	width: fill-parent-flow( 1.0 );
+}
+
+.StCardName
+{
+	font-size: 16px;
+	font-weight: bold;
+	color: #ECEFF4;
+	width: 100%;
+	text-overflow: shrink;
+}
+
+.StCardSub
+{
+	font-size: 12px;
+	color: #8A93A3;
+}
+
+.StCardBottom
+{
+	flow-children: right;
+	width: 100%;
+}
+
+.StPill
+{
+	font-size: 13px;
+	font-weight: bold;
+	padding: 4px 10px;
+	border-radius: 10px;
+	color: #D5DBE5;
+	background-color: #ffffff0d;
+	border: 1px solid #ffffff1f;
+}
+
+.StCard.eq .StPill
+{
+	color: #E6C068;
+	background-color: #E6C06822;
+	border: 1px solid #E6C06888;
+}
+
+.StCard.own .StPill
+{
+	color: #7FD48A;
+	background-color: #7FD48A1f;
+	border: 1px solid #7FD48A66;
+}
+
+.StCard.confirm .StPill
+{
+	color: #15110a;
+	background-color: #E6C068;
+	border: 1px solid #E6C068;
+}
+
+.StCard.cant .StPill
+{
+	color: #8A93A3;
+}
+
+.StAct
+{
+	font-size: 12px;
+	color: #8A93A3;
+	vertical-align: center;
+}
+
+.StCard.sel .StAct
+{
+	color: #ECEFF4;
+}
+
+.StCard.cant .StAct
+{
+	color: #E57373;
+}
+
+.StFoot
+{
+	width: 100%;
+	height: 52px;
+	flow-children: right;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-top: 1px solid #ffffff14;
+}
+
+.StMsg
+{
+	vertical-align: center;
+	font-size: 13px;
+	font-weight: bold;
+	padding: 6px 12px;
+	border-radius: 6px;
+}
+
+.StMsg.ok
+{
+	color: #7FD48A;
+	background-color: #7FD48A1a;
+	border: 1px solid #7FD48A55;
+}
+
+.StMsg.err
+{
+	color: #E57373;
+	background-color: #E573731a;
+	border: 1px solid #E5737355;
+}
+
+.StMsg.info
+{
+	color: #E6C068;
+	background-color: #E6C0681a;
+	border: 1px solid #E6C06855;
+}
+
+.StKeys
+{
+	vertical-align: center;
+	font-size: 12px;
+	letter-spacing: 1px;
+	color: #6E7787;
+}
+
+.StPage
+{
+	vertical-align: center;
+	margin-left: 16px;
+	font-size: 14px;
+	font-weight: bold;
+	color: #A7B1C2;
+	padding: 4px 10px;
+	border-radius: 6px;
+	background-color: #ffffff0a;
+}

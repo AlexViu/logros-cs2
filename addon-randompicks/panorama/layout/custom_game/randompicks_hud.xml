@@ -144,6 +144,367 @@
 			</Panel>
 			<Label id="rp_menu_hint" class="MHint" hittest="false" text="{s:rp_menu_hint}" />
 		</Panel>
+		<!-- StoreHud: tienda de cs2-store (W A S D + E). Clases por jugador: hidden, active, sel, ic_* (icono), eq/own/confirm/cant/buy (tarjeta), ok/err/info (mensaje). -->
+		<Panel id="st_store" class="StStore hidden" hittest="false">
+			<Panel class="StHead" hittest="false">
+				<Panel class="StLogo" hittest="false"><Image class="StLogoIcon" src="s2r://panorama/images/icons/ui/shoppingcart.vsvg" hittest="false" /></Panel>
+				<Panel class="StTitleCol" hittest="false">
+					<Label id="st_title" class="StTitle" hittest="false" text="{s:st_title}" />
+					<Label id="st_player" class="StPlayer" hittest="false" text="{s:st_player}" />
+				</Panel>
+				<Panel class="StCredits" hittest="false">
+					<Image class="StCoin" src="s2r://panorama/images/icons/ui/coin_stack.vsvg" hittest="false" />
+					<Label id="st_credits" class="StCreditsText" hittest="false" text="{s:st_credits}" />
+				</Panel>
+				<Panel class="StFillW" hittest="false" />
+				<Panel class="StTabs" hittest="false">
+					<Label id="st_tab_0" class="StTab" hittest="false" text="{s:st_tab_0}" />
+					<Label id="st_tab_1" class="StTab" hittest="false" text="{s:st_tab_1}" />
+				</Panel>
+				<Label id="st_close" class="StClose" hittest="false" text="{s:st_close}" />
+			</Panel>
+			<Panel class="StBody" hittest="false">
+				<Panel class="StSide" hittest="false">
+					<Panel id="st_cat_0" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_0_name" class="StCatName" hittest="false" text="{s:st_cat_0_name}" />
+						<Label id="st_cat_0_n" class="StCatCount" hittest="false" text="{s:st_cat_0_n}" />
+					</Panel>
+					<Panel id="st_cat_1" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_1_name" class="StCatName" hittest="false" text="{s:st_cat_1_name}" />
+						<Label id="st_cat_1_n" class="StCatCount" hittest="false" text="{s:st_cat_1_n}" />
+					</Panel>
+					<Panel id="st_cat_2" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_2_name" class="StCatName" hittest="false" text="{s:st_cat_2_name}" />
+						<Label id="st_cat_2_n" class="StCatCount" hittest="false" text="{s:st_cat_2_n}" />
+					</Panel>
+					<Panel id="st_cat_3" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_3_name" class="StCatName" hittest="false" text="{s:st_cat_3_name}" />
+						<Label id="st_cat_3_n" class="StCatCount" hittest="false" text="{s:st_cat_3_n}" />
+					</Panel>
+					<Panel id="st_cat_4" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_4_name" class="StCatName" hittest="false" text="{s:st_cat_4_name}" />
+						<Label id="st_cat_4_n" class="StCatCount" hittest="false" text="{s:st_cat_4_n}" />
+					</Panel>
+					<Panel id="st_cat_5" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_5_name" class="StCatName" hittest="false" text="{s:st_cat_5_name}" />
+						<Label id="st_cat_5_n" class="StCatCount" hittest="false" text="{s:st_cat_5_n}" />
+					</Panel>
+					<Panel id="st_cat_6" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_6_name" class="StCatName" hittest="false" text="{s:st_cat_6_name}" />
+						<Label id="st_cat_6_n" class="StCatCount" hittest="false" text="{s:st_cat_6_n}" />
+					</Panel>
+					<Panel id="st_cat_7" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_7_name" class="StCatName" hittest="false" text="{s:st_cat_7_name}" />
+						<Label id="st_cat_7_n" class="StCatCount" hittest="false" text="{s:st_cat_7_n}" />
+					</Panel>
+					<Panel id="st_cat_8" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_8_name" class="StCatName" hittest="false" text="{s:st_cat_8_name}" />
+						<Label id="st_cat_8_n" class="StCatCount" hittest="false" text="{s:st_cat_8_n}" />
+					</Panel>
+					<Panel id="st_cat_9" class="StCat hidden" hittest="false">
+						<Panel class="StIcon" hittest="false">
+							<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+							<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+							<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+							<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+							<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+							<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+						</Panel>
+						<Label id="st_cat_9_name" class="StCatName" hittest="false" text="{s:st_cat_9_name}" />
+						<Label id="st_cat_9_n" class="StCatCount" hittest="false" text="{s:st_cat_9_n}" />
+					</Panel>
+				</Panel>
+				<Panel class="StMain" hittest="false">
+					<Panel class="StSectRow" hittest="false">
+						<Label id="st_sect" class="StSect" hittest="false" text="{s:st_sect}" />
+						<Label id="st_sect_n" class="StSectN" hittest="false" text="{s:st_sect_n}" />
+					</Panel>
+					<Label id="st_empty" class="StEmpty hidden" hittest="false" text="{s:st_empty}" />
+					<Panel class="StRow" hittest="false">
+						<Panel id="st_card_0" class="StCard hidden" hittest="false">
+							<Panel class="StCardTop" hittest="false">
+								<Panel class="StCardIcon" hittest="false">
+									<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+									<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+									<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+									<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+									<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+									<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+								</Panel>
+								<Panel class="StCardText" hittest="false">
+									<Label id="st_card_0_name" class="StCardName" hittest="false" text="{s:st_card_0_name}" />
+									<Label id="st_card_0_sub" class="StCardSub" hittest="false" text="{s:st_card_0_sub}" />
+								</Panel>
+							</Panel>
+							<Panel class="StFillH" hittest="false" />
+							<Panel class="StCardBottom" hittest="false">
+								<Label id="st_card_0_pill" class="StPill" hittest="false" text="{s:st_card_0_pill}" />
+								<Panel class="StFillW" hittest="false" />
+								<Label id="st_card_0_act" class="StAct" hittest="false" text="{s:st_card_0_act}" />
+							</Panel>
+						</Panel>
+						<Panel id="st_card_1" class="StCard hidden" hittest="false">
+							<Panel class="StCardTop" hittest="false">
+								<Panel class="StCardIcon" hittest="false">
+									<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+									<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+									<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+									<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+									<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+									<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+								</Panel>
+								<Panel class="StCardText" hittest="false">
+									<Label id="st_card_1_name" class="StCardName" hittest="false" text="{s:st_card_1_name}" />
+									<Label id="st_card_1_sub" class="StCardSub" hittest="false" text="{s:st_card_1_sub}" />
+								</Panel>
+							</Panel>
+							<Panel class="StFillH" hittest="false" />
+							<Panel class="StCardBottom" hittest="false">
+								<Label id="st_card_1_pill" class="StPill" hittest="false" text="{s:st_card_1_pill}" />
+								<Panel class="StFillW" hittest="false" />
+								<Label id="st_card_1_act" class="StAct" hittest="false" text="{s:st_card_1_act}" />
+							</Panel>
+						</Panel>
+						<Panel id="st_card_2" class="StCard hidden" hittest="false">
+							<Panel class="StCardTop" hittest="false">
+								<Panel class="StCardIcon" hittest="false">
+									<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+									<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+									<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+									<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+									<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+									<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+								</Panel>
+								<Panel class="StCardText" hittest="false">
+									<Label id="st_card_2_name" class="StCardName" hittest="false" text="{s:st_card_2_name}" />
+									<Label id="st_card_2_sub" class="StCardSub" hittest="false" text="{s:st_card_2_sub}" />
+								</Panel>
+							</Panel>
+							<Panel class="StFillH" hittest="false" />
+							<Panel class="StCardBottom" hittest="false">
+								<Label id="st_card_2_pill" class="StPill" hittest="false" text="{s:st_card_2_pill}" />
+								<Panel class="StFillW" hittest="false" />
+								<Label id="st_card_2_act" class="StAct" hittest="false" text="{s:st_card_2_act}" />
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel class="StRow" hittest="false">
+						<Panel id="st_card_3" class="StCard hidden" hittest="false">
+							<Panel class="StCardTop" hittest="false">
+								<Panel class="StCardIcon" hittest="false">
+									<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+									<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+									<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+									<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+									<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+									<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+								</Panel>
+								<Panel class="StCardText" hittest="false">
+									<Label id="st_card_3_name" class="StCardName" hittest="false" text="{s:st_card_3_name}" />
+									<Label id="st_card_3_sub" class="StCardSub" hittest="false" text="{s:st_card_3_sub}" />
+								</Panel>
+							</Panel>
+							<Panel class="StFillH" hittest="false" />
+							<Panel class="StCardBottom" hittest="false">
+								<Label id="st_card_3_pill" class="StPill" hittest="false" text="{s:st_card_3_pill}" />
+								<Panel class="StFillW" hittest="false" />
+								<Label id="st_card_3_act" class="StAct" hittest="false" text="{s:st_card_3_act}" />
+							</Panel>
+						</Panel>
+						<Panel id="st_card_4" class="StCard hidden" hittest="false">
+							<Panel class="StCardTop" hittest="false">
+								<Panel class="StCardIcon" hittest="false">
+									<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+									<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+									<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+									<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+									<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+									<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+								</Panel>
+								<Panel class="StCardText" hittest="false">
+									<Label id="st_card_4_name" class="StCardName" hittest="false" text="{s:st_card_4_name}" />
+									<Label id="st_card_4_sub" class="StCardSub" hittest="false" text="{s:st_card_4_sub}" />
+								</Panel>
+							</Panel>
+							<Panel class="StFillH" hittest="false" />
+							<Panel class="StCardBottom" hittest="false">
+								<Label id="st_card_4_pill" class="StPill" hittest="false" text="{s:st_card_4_pill}" />
+								<Panel class="StFillW" hittest="false" />
+								<Label id="st_card_4_act" class="StAct" hittest="false" text="{s:st_card_4_act}" />
+							</Panel>
+						</Panel>
+						<Panel id="st_card_5" class="StCard hidden" hittest="false">
+							<Panel class="StCardTop" hittest="false">
+								<Panel class="StCardIcon" hittest="false">
+									<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+									<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+									<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+									<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+									<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+									<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+								</Panel>
+								<Panel class="StCardText" hittest="false">
+									<Label id="st_card_5_name" class="StCardName" hittest="false" text="{s:st_card_5_name}" />
+									<Label id="st_card_5_sub" class="StCardSub" hittest="false" text="{s:st_card_5_sub}" />
+								</Panel>
+							</Panel>
+							<Panel class="StFillH" hittest="false" />
+							<Panel class="StCardBottom" hittest="false">
+								<Label id="st_card_5_pill" class="StPill" hittest="false" text="{s:st_card_5_pill}" />
+								<Panel class="StFillW" hittest="false" />
+								<Label id="st_card_5_act" class="StAct" hittest="false" text="{s:st_card_5_act}" />
+							</Panel>
+						</Panel>
+					</Panel>
+					<Panel class="StRow" hittest="false">
+						<Panel id="st_card_6" class="StCard hidden" hittest="false">
+							<Panel class="StCardTop" hittest="false">
+								<Panel class="StCardIcon" hittest="false">
+									<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+									<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+									<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+									<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+									<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+									<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+								</Panel>
+								<Panel class="StCardText" hittest="false">
+									<Label id="st_card_6_name" class="StCardName" hittest="false" text="{s:st_card_6_name}" />
+									<Label id="st_card_6_sub" class="StCardSub" hittest="false" text="{s:st_card_6_sub}" />
+								</Panel>
+							</Panel>
+							<Panel class="StFillH" hittest="false" />
+							<Panel class="StCardBottom" hittest="false">
+								<Label id="st_card_6_pill" class="StPill" hittest="false" text="{s:st_card_6_pill}" />
+								<Panel class="StFillW" hittest="false" />
+								<Label id="st_card_6_act" class="StAct" hittest="false" text="{s:st_card_6_act}" />
+							</Panel>
+						</Panel>
+						<Panel id="st_card_7" class="StCard hidden" hittest="false">
+							<Panel class="StCardTop" hittest="false">
+								<Panel class="StCardIcon" hittest="false">
+									<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+									<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+									<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+									<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+									<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+									<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+								</Panel>
+								<Panel class="StCardText" hittest="false">
+									<Label id="st_card_7_name" class="StCardName" hittest="false" text="{s:st_card_7_name}" />
+									<Label id="st_card_7_sub" class="StCardSub" hittest="false" text="{s:st_card_7_sub}" />
+								</Panel>
+							</Panel>
+							<Panel class="StFillH" hittest="false" />
+							<Panel class="StCardBottom" hittest="false">
+								<Label id="st_card_7_pill" class="StPill" hittest="false" text="{s:st_card_7_pill}" />
+								<Panel class="StFillW" hittest="false" />
+								<Label id="st_card_7_act" class="StAct" hittest="false" text="{s:st_card_7_act}" />
+							</Panel>
+						</Panel>
+						<Panel id="st_card_8" class="StCard hidden" hittest="false">
+							<Panel class="StCardTop" hittest="false">
+								<Panel class="StCardIcon" hittest="false">
+									<Image class="StImg IcPlayer" src="s2r://panorama/images/icons/ui/player.vsvg" hittest="false" />
+									<Image class="StImg IcShield" src="s2r://panorama/images/icons/ui/shield.vsvg" hittest="false" />
+									<Image class="StImg IcTrail" src="s2r://panorama/images/icons/ui/fast.vsvg" hittest="false" />
+									<Image class="StImg IcWings" src="s2r://panorama/images/icons/ui/pet_effect_feather.vsvg" hittest="false" />
+									<Image class="StImg IcTag" src="s2r://panorama/images/icons/ui/clantag.vsvg" hittest="false" />
+									<Image class="StImg IcStar" src="s2r://panorama/images/icons/ui/star.vsvg" hittest="false" />
+								</Panel>
+								<Panel class="StCardText" hittest="false">
+									<Label id="st_card_8_name" class="StCardName" hittest="false" text="{s:st_card_8_name}" />
+									<Label id="st_card_8_sub" class="StCardSub" hittest="false" text="{s:st_card_8_sub}" />
+								</Panel>
+							</Panel>
+							<Panel class="StFillH" hittest="false" />
+							<Panel class="StCardBottom" hittest="false">
+								<Label id="st_card_8_pill" class="StPill" hittest="false" text="{s:st_card_8_pill}" />
+								<Panel class="StFillW" hittest="false" />
+								<Label id="st_card_8_act" class="StAct" hittest="false" text="{s:st_card_8_act}" />
+							</Panel>
+						</Panel>
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel class="StFoot" hittest="false">
+				<Label id="st_msg" class="StMsg hidden" hittest="false" text="{s:st_msg}" />
+				<Panel class="StFillW" hittest="false" />
+				<Label id="st_keys" class="StKeys" hittest="false" text="{s:st_keys}" />
+				<Label id="st_page" class="StPage" hittest="false" text="{s:st_page}" />
+			</Panel>
+		</Panel>
 		<!-- CourseAchievements: aviso al conseguir un logro (copa + nombre y una barra que se vacía mientras se ve) -->
 		<Panel id="ca_toast" class="CaToast" hittest="false">
 			<Panel class="CaToastRow" hittest="false">
