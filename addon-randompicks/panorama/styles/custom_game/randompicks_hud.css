@@ -1146,3 +1146,54 @@ Label
 	border-radius: 6px;
 	background-color: #ffffff0a;
 }
+
+/* Inspeccionar (F): solo en las tarjetas de skins */
+.StInsp
+{
+	visibility: collapse;
+	flow-children: right;
+	height: 22px;
+	padding: 0px 7px;
+	margin-left: 6px;
+	border-radius: 5px;
+	background-color: #ffffff0d;
+	border: 1px solid #ffffff1f;
+}
+
+.StCard.insp .StInsp
+{
+	visibility: visible;
+}
+
+.StInspImg
+{
+	width: 12px;
+	height: 12px;
+	vertical-align: center;
+	margin-right: 5px;
+	wash-color: #8A93A3;
+}
+
+.StInspKey
+{
+	font-size: 11px;
+	font-weight: bold;
+	vertical-align: center;
+	color: #8A93A3;
+}
+
+.StCard.sel.insp .StInsp
+{
+	background-color: #E6C06822;
+	border: 1px solid #E6C06888;
+}
+
+.StCard.sel .StInspImg
+{
+	wash-color: #E6C068;
+}
+
+.StCard.sel .StInspKey
+{
+	color: #E6C068;
+}

@@ -307,6 +307,10 @@
 									<Label id="st_card_0_name" class="StCardName" hittest="false" text="{s:st_card_0_name}" />
 									<Label id="st_card_0_sub" class="StCardSub" hittest="false" text="{s:st_card_0_sub}" />
 								</Panel>
+								<Panel class="StInsp" hittest="false">
+									<Image class="StInspImg" src="s2r://panorama/images/icons/ui/search.vsvg" hittest="false" />
+									<Label class="StInspKey" hittest="false" text="F" />
+								</Panel>
 							</Panel>
 							<Panel class="StFillH" hittest="false" />
 							<Panel class="StCardBottom" hittest="false">
@@ -329,6 +333,10 @@
 									<Label id="st_card_1_name" class="StCardName" hittest="false" text="{s:st_card_1_name}" />
 									<Label id="st_card_1_sub" class="StCardSub" hittest="false" text="{s:st_card_1_sub}" />
 								</Panel>
+								<Panel class="StInsp" hittest="false">
+									<Image class="StInspImg" src="s2r://panorama/images/icons/ui/search.vsvg" hittest="false" />
+									<Label class="StInspKey" hittest="false" text="F" />
+								</Panel>
 							</Panel>
 							<Panel class="StFillH" hittest="false" />
 							<Panel class="StCardBottom" hittest="false">
@@ -350,6 +358,10 @@
 								<Panel class="StCardText" hittest="false">
 									<Label id="st_card_2_name" class="StCardName" hittest="false" text="{s:st_card_2_name}" />
 									<Label id="st_card_2_sub" class="StCardSub" hittest="false" text="{s:st_card_2_sub}" />
+								</Panel>
+								<Panel class="StInsp" hittest="false">
+									<Image class="StInspImg" src="s2r://panorama/images/icons/ui/search.vsvg" hittest="false" />
+									<Label class="StInspKey" hittest="false" text="F" />
 								</Panel>
 							</Panel>
 							<Panel class="StFillH" hittest="false" />
@@ -375,6 +387,10 @@
 									<Label id="st_card_3_name" class="StCardName" hittest="false" text="{s:st_card_3_name}" />
 									<Label id="st_card_3_sub" class="StCardSub" hittest="false" text="{s:st_card_3_sub}" />
 								</Panel>
+								<Panel class="StInsp" hittest="false">
+									<Image class="StInspImg" src="s2r://panorama/images/icons/ui/search.vsvg" hittest="false" />
+									<Label class="StInspKey" hittest="false" text="F" />
+								</Panel>
 							</Panel>
 							<Panel class="StFillH" hittest="false" />
 							<Panel class="StCardBottom" hittest="false">
@@ -397,6 +413,10 @@
 									<Label id="st_card_4_name" class="StCardName" hittest="false" text="{s:st_card_4_name}" />
 									<Label id="st_card_4_sub" class="StCardSub" hittest="false" text="{s:st_card_4_sub}" />
 								</Panel>
+								<Panel class="StInsp" hittest="false">
+									<Image class="StInspImg" src="s2r://panorama/images/icons/ui/search.vsvg" hittest="false" />
+									<Label class="StInspKey" hittest="false" text="F" />
+								</Panel>
 							</Panel>
 							<Panel class="StFillH" hittest="false" />
 							<Panel class="StCardBottom" hittest="false">
@@ -418,6 +438,10 @@
 								<Panel class="StCardText" hittest="false">
 									<Label id="st_card_5_name" class="StCardName" hittest="false" text="{s:st_card_5_name}" />
 									<Label id="st_card_5_sub" class="StCardSub" hittest="false" text="{s:st_card_5_sub}" />
+								</Panel>
+								<Panel class="StInsp" hittest="false">
+									<Image class="StInspImg" src="s2r://panorama/images/icons/ui/search.vsvg" hittest="false" />
+									<Label class="StInspKey" hittest="false" text="F" />
 								</Panel>
 							</Panel>
 							<Panel class="StFillH" hittest="false" />
@@ -443,6 +467,10 @@
 									<Label id="st_card_6_name" class="StCardName" hittest="false" text="{s:st_card_6_name}" />
 									<Label id="st_card_6_sub" class="StCardSub" hittest="false" text="{s:st_card_6_sub}" />
 								</Panel>
+								<Panel class="StInsp" hittest="false">
+									<Image class="StInspImg" src="s2r://panorama/images/icons/ui/search.vsvg" hittest="false" />
+									<Label class="StInspKey" hittest="false" text="F" />
+								</Panel>
 							</Panel>
 							<Panel class="StFillH" hittest="false" />
 							<Panel class="StCardBottom" hittest="false">
@@ -465,6 +493,10 @@
 									<Label id="st_card_7_name" class="StCardName" hittest="false" text="{s:st_card_7_name}" />
 									<Label id="st_card_7_sub" class="StCardSub" hittest="false" text="{s:st_card_7_sub}" />
 								</Panel>
+								<Panel class="StInsp" hittest="false">
+									<Image class="StInspImg" src="s2r://panorama/images/icons/ui/search.vsvg" hittest="false" />
+									<Label class="StInspKey" hittest="false" text="F" />
+								</Panel>
 							</Panel>
 							<Panel class="StFillH" hittest="false" />
 							<Panel class="StCardBottom" hittest="false">
@@ -486,6 +518,10 @@
 								<Panel class="StCardText" hittest="false">
 									<Label id="st_card_8_name" class="StCardName" hittest="false" text="{s:st_card_8_name}" />
 									<Label id="st_card_8_sub" class="StCardSub" hittest="false" text="{s:st_card_8_sub}" />
+								</Panel>
+								<Panel class="StInsp" hittest="false">
+									<Image class="StInspImg" src="s2r://panorama/images/icons/ui/search.vsvg" hittest="false" />
+									<Label class="StInspKey" hittest="false" text="F" />
 								</Panel>
 							</Panel>
 							<Panel class="StFillH" hittest="false" />
