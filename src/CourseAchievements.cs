@@ -17,7 +17,7 @@ public partial class CourseAchievements : BasePlugin, IPluginConfig<Achievements
 {
     public override string ModuleName => "CourseAchievements";
     public override string ModuleVersion => "1.2.0";
-    public override string ModuleAuthor => "logros-cs2";
+    public override string ModuleAuthor => "Lonza";
     public override string ModuleDescription => "Achievements for SharpTimer minigames course servers, with a Panorama HUD";
     public AchievementsConfig Config { get; set; } = new();
 
