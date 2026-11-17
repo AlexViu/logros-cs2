@@ -255,3 +255,16 @@ Nochebuena, Navidad) los da el plugin AdventCalendar con sus `AchievementHooks`.
 - Las posiciones del CSS (`margin-top` del seguimiento) están pensadas para no pisar los paneles de RandomPicksHud;
   si no lo usas, puedes subir el panel cambiando `.Tracker` en el CSS.
 - Solo MySQL (como RandomPicksHud). SQLite y PostgreSQL de SharpTimer no están soportados.
+
+## Dependencias de terceros y licencias
+
+`lib/` incluye estas DLLs de otros proyectos solo para poder compilar (contratos de sus APIs). **No se copian al
+servidor** con el plugin: en runtime las aporta el propio plugin de cada proyecto desde `addons/counterstrikesharp/shared/`.
+
+| Archivo | Proyecto | Licencia |
+|---|---|---|
+| `lib/StoreApi.dll` | [cs2-store](https://github.com/schwarper/cs2-store) de schwarper (API v33) | [GPL-3.0](https://github.com/schwarper/cs2-store/blob/main/LICENSE) |
+| `lib/RandomPicksHudApi.dll` | [RandomPicksHud](https://github.com/torment93/RandomPicksHud) | [MIT](https://github.com/torment93/RandomPicksHud/blob/main/LICENSE) |
+
+Todos los derechos de esas DLLs pertenecen a sus autores; el código fuente está en sus repositorios.
+Las dependencias de NuGet (CounterStrikeSharp.API, MySqlConnector) no se incluyen en el repo: se descargan al compilar.
