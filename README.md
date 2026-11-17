@@ -264,7 +264,7 @@ servidor** con el plugin: en runtime las aporta el propio plugin de cada proyect
 | Archivo | Proyecto | Licencia |
 |---|---|---|
 | `lib/StoreApi.dll` | [cs2-store](https://github.com/schwarper/cs2-store) de schwarper (API v33) | [GPL-3.0](https://github.com/schwarper/cs2-store/blob/main/LICENSE) |
-| `lib/RandomPicksHudApi.dll` | [RandomPicksHud](https://github.com/torment93/RandomPicksHud) | [MIT](https://github.com/torment93/RandomPicksHud/blob/main/LICENSE) |
+| `lib/RandomPicksHudApi.dll` | [RandomPicksHud](https://github.com/torment93/RandomPicksHud) | [MIT](https://github.com/torment93/RandomPicksHud/blob/master/LICENSE) |
 
 Todos los derechos de esas DLLs pertenecen a sus autores; el código fuente está en sus repositorios.
 Las dependencias de NuGet (CounterStrikeSharp.API, MySqlConnector) no se incluyen en el repo: se descargan al compilar.
