@@ -1245,31 +1245,36 @@ Label
 	color: #7FD48A;
 }
 
+/* 7 columnas de 136px + 5px de margen a cada lado = 1022px; el bloque va centrado y las filas
+   alineadas a la izquierda, así la última (22-25) queda debajo de las demás */
 .AcGrid
 {
-	width: 100%;
+	width: 1022px;
 	height: fill-parent-flow( 1.0 );
+	horizontal-align: center;
 	flow-children: down;
-	padding: 18px 20px 6px 20px;
+	padding-top: 20px;
 }
 
 .AcRow
 {
 	flow-children: right;
-	horizontal-align: center;
+	horizontal-align: left;
 	margin-bottom: 10px;
 }
 
+/* Borde de 2px en todos los estados: la seleccionada solo cambia de color y no se mueve */
 .AcDay
 {
 	width: 136px;
 	height: 92px;
-	margin-right: 10px;
+	margin-left: 5px;
+	margin-right: 5px;
 	flow-children: down;
-	padding: 10px 12px;
+	padding: 9px 11px;
 	border-radius: 8px;
 	background-color: #ffffff08;
-	border: 1px solid #ffffff14;
+	border: 2px solid #ffffff14;
 }
 
 .AcDayTop
@@ -1312,7 +1317,7 @@ Label
 .AcDay.claimed
 {
 	background-color: #7FD48A14;
-	border: 1px solid #7FD48A55;
+	border: 2px solid #7FD48A55;
 }
 .AcDay.claimed .AcIcCheck { visibility: visible; wash-color: #7FD48A; }
 .AcDay.claimed .AcNum { color: #7FD48A; }
@@ -1322,7 +1327,7 @@ Label
 .AcDay.today
 {
 	background-color: #E6C06822;
-	border: 1px solid #E6C068;
+	border: 2px solid #E6C068;
 }
 .AcDay.today .AcIcGift { visibility: visible; wash-color: #E6C068; }
 .AcDay.today .AcNum { color: #E6C068; }
@@ -1332,7 +1337,7 @@ Label
 .AcDay.missed
 {
 	background-color: #00000040;
-	border: 1px solid #ffffff0a;
+	border: 2px solid #ffffff0a;
 }
 .AcDay.missed .AcIcMiss { visibility: visible; wash-color: #E5737399; }
 .AcDay.missed .AcNum { color: #4A5260; }
