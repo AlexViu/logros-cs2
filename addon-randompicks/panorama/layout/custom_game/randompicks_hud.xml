@@ -541,6 +541,269 @@
 				<Label id="st_page" class="StPage" hittest="false" text="{s:st_page}" />
 			</Panel>
 		</Panel>
+		<!-- AdventCalendar: calendario de adviento (!calendario). Mismo estilo que la tienda -->
+		<Panel id="ac_cal" class="AcCal hidden" hittest="false">
+			<Panel class="StHead" hittest="false">
+				<Panel class="StLogo AcLogo" hittest="false"><Image class="StLogoIcon" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /></Panel>
+				<Panel class="StTitleCol" hittest="false">
+					<Label id="ac_title" class="StTitle" hittest="false" text="{s:ac_title}" />
+					<Label id="ac_player" class="StPlayer" hittest="false" text="{s:ac_player}" />
+				</Panel>
+				<Panel class="StCredits AcProgress" hittest="false">
+					<Image class="StCoin AcProgressIcon" src="s2r://panorama/images/icons/ui/calender.vsvg" hittest="false" />
+					<Label id="ac_progress" class="StCreditsText AcProgressText" hittest="false" text="{s:ac_progress}" />
+				</Panel>
+				<Panel class="StFillW" hittest="false" />
+				<Label id="ac_close" class="StClose" hittest="false" text="{s:ac_close}" />
+			</Panel>
+			<Panel class="AcGrid" hittest="false">
+				<Panel class="AcRow" hittest="false">
+					<Panel id="ac_d_1" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="1" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_1_r" class="AcReward" hittest="false" text="{s:ac_d_1_r}" />
+					</Panel>
+					<Panel id="ac_d_2" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="2" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_2_r" class="AcReward" hittest="false" text="{s:ac_d_2_r}" />
+					</Panel>
+					<Panel id="ac_d_3" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="3" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_3_r" class="AcReward" hittest="false" text="{s:ac_d_3_r}" />
+					</Panel>
+					<Panel id="ac_d_4" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="4" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_4_r" class="AcReward" hittest="false" text="{s:ac_d_4_r}" />
+					</Panel>
+					<Panel id="ac_d_5" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="5" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_5_r" class="AcReward" hittest="false" text="{s:ac_d_5_r}" />
+					</Panel>
+					<Panel id="ac_d_6" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="6" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_6_r" class="AcReward" hittest="false" text="{s:ac_d_6_r}" />
+					</Panel>
+					<Panel id="ac_d_7" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="7" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_7_r" class="AcReward" hittest="false" text="{s:ac_d_7_r}" />
+					</Panel>
+				</Panel>
+				<Panel class="AcRow" hittest="false">
+					<Panel id="ac_d_8" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="8" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_8_r" class="AcReward" hittest="false" text="{s:ac_d_8_r}" />
+					</Panel>
+					<Panel id="ac_d_9" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="9" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_9_r" class="AcReward" hittest="false" text="{s:ac_d_9_r}" />
+					</Panel>
+					<Panel id="ac_d_10" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="10" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_10_r" class="AcReward" hittest="false" text="{s:ac_d_10_r}" />
+					</Panel>
+					<Panel id="ac_d_11" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="11" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_11_r" class="AcReward" hittest="false" text="{s:ac_d_11_r}" />
+					</Panel>
+					<Panel id="ac_d_12" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="12" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_12_r" class="AcReward" hittest="false" text="{s:ac_d_12_r}" />
+					</Panel>
+					<Panel id="ac_d_13" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="13" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_13_r" class="AcReward" hittest="false" text="{s:ac_d_13_r}" />
+					</Panel>
+					<Panel id="ac_d_14" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="14" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_14_r" class="AcReward" hittest="false" text="{s:ac_d_14_r}" />
+					</Panel>
+				</Panel>
+				<Panel class="AcRow" hittest="false">
+					<Panel id="ac_d_15" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="15" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_15_r" class="AcReward" hittest="false" text="{s:ac_d_15_r}" />
+					</Panel>
+					<Panel id="ac_d_16" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="16" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_16_r" class="AcReward" hittest="false" text="{s:ac_d_16_r}" />
+					</Panel>
+					<Panel id="ac_d_17" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="17" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_17_r" class="AcReward" hittest="false" text="{s:ac_d_17_r}" />
+					</Panel>
+					<Panel id="ac_d_18" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="18" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_18_r" class="AcReward" hittest="false" text="{s:ac_d_18_r}" />
+					</Panel>
+					<Panel id="ac_d_19" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="19" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_19_r" class="AcReward" hittest="false" text="{s:ac_d_19_r}" />
+					</Panel>
+					<Panel id="ac_d_20" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="20" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_20_r" class="AcReward" hittest="false" text="{s:ac_d_20_r}" />
+					</Panel>
+					<Panel id="ac_d_21" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="21" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_21_r" class="AcReward" hittest="false" text="{s:ac_d_21_r}" />
+					</Panel>
+				</Panel>
+				<Panel class="AcRow" hittest="false">
+					<Panel id="ac_d_22" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="22" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_22_r" class="AcReward" hittest="false" text="{s:ac_d_22_r}" />
+					</Panel>
+					<Panel id="ac_d_23" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="23" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_23_r" class="AcReward" hittest="false" text="{s:ac_d_23_r}" />
+					</Panel>
+					<Panel id="ac_d_24" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="24" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_24_r" class="AcReward" hittest="false" text="{s:ac_d_24_r}" />
+					</Panel>
+					<Panel id="ac_d_25" class="AcDay future" hittest="false">
+						<Panel class="AcDayTop" hittest="false">
+							<Label class="AcNum" hittest="false" text="25" />
+							<Panel class="StFillW" hittest="false" />
+							<Panel class="AcState" hittest="false"><Image class="AcImg AcIcCheck" src="s2r://panorama/images/icons/ui/check.vsvg" hittest="false" /><Image class="AcImg AcIcGift" src="s2r://panorama/images/icons/ui/gift.vsvg" hittest="false" /><Image class="AcImg AcIcLock" src="s2r://panorama/images/icons/ui/locked.vsvg" hittest="false" /><Image class="AcImg AcIcMiss" src="s2r://panorama/images/icons/ui/clock.vsvg" hittest="false" /></Panel>
+						</Panel>
+						<Panel class="StFillH" hittest="false" />
+						<Label id="ac_d_25_r" class="AcReward" hittest="false" text="{s:ac_d_25_r}" />
+					</Panel>
+				</Panel>
+			</Panel>
+			<Panel class="AcDetail" hittest="false">
+				<Label id="ac_detail_day" class="AcDetailDay" hittest="false" text="{s:ac_detail_day}" />
+				<Panel class="AcDetailCol" hittest="false">
+					<Label id="ac_detail" class="AcDetailText" hittest="false" text="{s:ac_detail}" />
+					<Label id="ac_detail_sub" class="AcDetailSub" hittest="false" text="{s:ac_detail_sub}" />
+				</Panel>
+			</Panel>
+			<Panel class="StFoot" hittest="false">
+				<Label id="ac_msg" class="StMsg hidden" hittest="false" text="{s:ac_msg}" />
+				<Panel class="StFillW" hittest="false" />
+				<Label id="ac_keys" class="StKeys" hittest="false" text="{s:ac_keys}" />
+			</Panel>
+		</Panel>
 		<!-- CourseAchievements: aviso al conseguir un logro (copa + nombre y una barra que se vacía mientras se ve) -->
 		<Panel id="ca_toast" class="CaToast" hittest="false">
 			<Panel class="CaToastRow" hittest="false">
