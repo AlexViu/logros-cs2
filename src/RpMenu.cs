@@ -64,7 +64,7 @@ public partial class CourseAchievements
     void OpenRpList(CCSPlayerController p, PlayerData d)
     {
         var (count, total, score) = Summary(d);
-        var items = Defs.Select(a =>
+        var items = ListFor(d).Select(a =>
         {
             var done = d.Unlocked.ContainsKey(a.Id);
             var secret = a.Hidden && !done;
@@ -103,7 +103,7 @@ public partial class CourseAchievements
         {
             if (_menu!.IsOpen(p)) return false;
             var d = _players.GetValueOrDefault(p.Slot);
-            var (count, total, _) = d is null ? (0, Defs.Count, 0) : Summary(d);
+            var (count, total, _) = d is null ? (0, ListFor(null).Count, 0) : Summary(d);
             _menu.Draw(p, T("hud.unlocked"), a.Name, new[] { (a.Description, ""), (T("menu.points"), $"+{a.Points}"), (T("hud.title"), $"{count}/{total}") },
                 total > 0 ? (float)count / total : 0f);
             return true;

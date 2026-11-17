@@ -317,7 +317,7 @@ public partial class CourseAchievements
         Class(p, "ca_list", "hidden", true);
     }
 
-    int Pages => Math.Max(1, (Defs.Count + PageSize - 1) / PageSize);
+    int PagesFor(PlayerData? d) => Math.Max(1, (ListFor(d).Count + PageSize - 1) / PageSize);
 
     void PushList(CCSPlayerController p, PlayerData? d)
     {
@@ -326,13 +326,14 @@ public partial class CourseAchievements
             Class(p, "ca_list", "hidden", true);
             return;
         }
-        var page = Math.Clamp(l.Page, 1, Pages);
+        var pages = PagesFor(d);
+        var page = Math.Clamp(l.Page, 1, pages);
         var (count, total, score) = Summary(d);
         Text(p, "ca_list_title", T("hud.title"));
         Text(p, "ca_list_sub", $"{count}/{total}  ·  {score} {T("hud.pts")}");
-        Text(p, "ca_list_page", T("hud.page", page, Pages));
-        Text(p, "ca_list_hint", page < Pages ? T("hud.hint_next", page + 1) : T("hud.hint_close"));
-        var items = Defs.Skip((page - 1) * PageSize).Take(PageSize).ToList();
+        Text(p, "ca_list_page", T("hud.page", page, pages));
+        Text(p, "ca_list_hint", page < pages ? T("hud.hint_next", page + 1) : T("hud.hint_close"));
+        var items = ListFor(d).Skip((page - 1) * PageSize).Take(PageSize).ToList();
         for (var i = 0; i < PageSize; i++)
         {
             var row = $"ca_row_{i}";

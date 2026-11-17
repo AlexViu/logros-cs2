@@ -34,7 +34,7 @@ public partial class CourseAchievements
         if (arg is "todos" or "all")
         {
             p.PrintToConsole($"---- {T("hud.title")}  {count}/{total}  ·  {score} {T("hud.pts")} ----");
-            foreach (var a in Defs) p.PrintToConsole(ConsoleRow(a, d));
+            foreach (var a in ListFor(d)) p.PrintToConsole(ConsoleRow(a, d));
             Chat(p, "chat.console");
             return;
         }
@@ -51,7 +51,7 @@ public partial class CourseAchievements
             catch (Exception ex) { Info($"menu: {ex.Message}"); } // si falla, sigue por el chat
         }
 
-        var page = int.TryParse(arg, out var n) ? Math.Clamp(n, 1, Pages) : 1;
+        var page = int.TryParse(arg, out var n) ? Math.Clamp(n, 1, PagesFor(d)) : 1;
         Chat(p, "chat.summary", count, total, score);
         if (NextFor(d) is { } next)
         {
@@ -60,7 +60,7 @@ public partial class CourseAchievements
         }
 
         // La página va siempre al chat (no depende de que el cliente tenga la HUD) y, si hay HUD, también a la HUD.
-        foreach (var a in Defs.Skip((page - 1) * PageSize).Take(PageSize))
+        foreach (var a in ListFor(d).Skip((page - 1) * PageSize).Take(PageSize))
         {
             var done = d.Unlocked.ContainsKey(a.Id);
             var (v, t) = Progress.Of(a, d, Defs);
@@ -68,7 +68,7 @@ public partial class CourseAchievements
             p.PrintToChat($" {T(done ? "chat.row_done" : "chat.row", secret ? T("hud.secret_name") : a.Name,
                 done ? T("hud.done") : secret ? "" : ProgressText(a, v, t), a.Points, secret ? T("hud.secret_desc") : a.Description)}");
         }
-        Chat(p, page < Pages ? "chat.more" : "chat.last", page + 1, page, Pages);
+        Chat(p, page < PagesFor(d) ? "chat.more" : "chat.last", page + 1, page, PagesFor(d));
         if (OwnPanels) OpenList(p, page);
     }
 

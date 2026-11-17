@@ -106,6 +106,8 @@ public class Database
         await AddColumnIfMissing(db, _unlocks, "Points", "Points INT NOT NULL DEFAULT 0");
         await AddColumnIfMissing(db, _defs, "RewardCredits", "RewardCredits INT NOT NULL DEFAULT 0");
         await AddColumnIfMissing(db, _defs, "RewardItems", "RewardItems VARCHAR(255) NOT NULL DEFAULT ''");
+        await AddColumnIfMissing(db, _defs, "ActiveFrom", "ActiveFrom DATETIME NULL");
+        await AddColumnIfMissing(db, _defs, "ActiveTo", "ActiveTo DATETIME NULL");
     }
 
     static async Task AddColumnIfMissing(MySqlConnection db, string table, string column, string definition)
@@ -160,17 +162,17 @@ public class Database
                 for (var i = 0; i < seed.Count; i++)
                 {
                     var a = seed[i];
-                    await Cmd(db, $@"INSERT IGNORE INTO {_defs} (Id,SortOrder,Enabled,Name,Description,Type,Target,Map,Style,Points,Hidden,Command,RewardCredits,RewardItems)
-                        VALUES (@id,@o,TRUE,@n,@d,@ty,@t,@m,@s,@p,@h,@c,@rc,@ri)",
+                    await Cmd(db, $@"INSERT IGNORE INTO {_defs} (Id,SortOrder,Enabled,Name,Description,Type,Target,Map,Style,Points,Hidden,Command,RewardCredits,RewardItems,ActiveFrom,ActiveTo)
+                        VALUES (@id,@o,TRUE,@n,@d,@ty,@t,@m,@s,@p,@h,@c,@rc,@ri,@af,@at)",
                         ("@id", a.Id), ("@o", (i + 1) * 10), ("@n", a.Name), ("@d", a.Description), ("@ty", a.Type.ToString()), ("@t", a.Target),
                         ("@m", a.Map), ("@s", a.Style), ("@p", a.Points), ("@h", a.Hidden), ("@c", a.Command),
-                        ("@rc", a.RewardCredits), ("@ri", a.RewardItems)).ExecuteNonQueryAsync();
+                        ("@rc", a.RewardCredits), ("@ri", a.RewardItems), ("@af", a.ActiveFrom), ("@at", a.ActiveTo)).ExecuteNonQueryAsync();
                 }
                 CourseAchievements.Info($"{_defs} was empty: filled with {seed.Count} achievements from the config");
             }
         }
         var list = new List<AchievementDef>();
-        await using var cmd = Cmd(db, $"SELECT Id,Name,Description,Type,Target,Map,Style,Points,Hidden,Command,RewardCredits,RewardItems FROM {_defs} WHERE Enabled ORDER BY SortOrder, Id");
+        await using var cmd = Cmd(db, $"SELECT Id,Name,Description,Type,Target,Map,Style,Points,Hidden,Command,RewardCredits,RewardItems,ActiveFrom,ActiveTo FROM {_defs} WHERE Enabled ORDER BY SortOrder, Id");
         await using var r = await cmd.ExecuteReaderAsync();
         while (await r.ReadAsync())
         {
@@ -185,6 +187,7 @@ public class Database
                 Id = id, Name = r.GetString(1), Description = r.GetString(2), Type = type, Target = r.GetDouble(4), Map = r.GetString(5),
                 Style = r.IsDBNull(6) ? null : r.GetInt32(6), Points = r.GetInt32(7), Hidden = r.GetBoolean(8), Command = r.GetString(9),
                 RewardCredits = r.GetInt32(10), RewardItems = r.GetString(11),
+                ActiveFrom = r.IsDBNull(12) ? null : r.GetDateTime(12), ActiveTo = r.IsDBNull(13) ? null : r.GetDateTime(13),
             });
         }
         return list;

@@ -112,7 +112,8 @@ Los textos salen en el idioma del servidor (`ServerLanguage` en `configs/core.js
 | `AnnounceToAll` | `true` | Anunciar en el chat de todos quién desbloquea cada logro. |
 | `UnlockSound` | `sounds/ui/panorama/round_report_round_won_01.vsnd` | Sonido al desbloquear. Vacío = sin sonido. |
 | `FinishCheckDelay` | `2` | Segundos que se espera a que SharpTimer guarde el tiempo antes de comprobarlo. |
-| `Achievements` | 38 logros | La lista de logros (ver abajo). Con `DefinitionsSource: database` solo sirve para rellenar la tabla la primera vez. |
+| `UtcOffsetHours` | `1` | Desfase de la hora local respecto a UTC para las ventanas de temporada (`ActiveFrom`/`ActiveTo`). |
+| `Achievements` | 48 logros | La lista de logros (ver abajo). Con `DefinitionsSource: database` solo sirve para rellenar la tabla la primera vez. |
 
 ## Recompensas de cs2-store
 
@@ -204,7 +205,8 @@ WHERE u.SteamID = '7656119XXXXXXXXXX' ORDER BY u.UnlockedAt;
 | `PlaytimeMinutes` | Minutos jugados | Este plugin |
 | `Connections` | Veces que se entra al servidor (los cambios de mapa no cuentan) | Este plugin |
 | `SessionFinishes` | Recorridos completados sin salir del servidor | Este plugin |
-| `Achievements` | Otros logros desbloqueados. `Target: 0` = todos los demás | Este plugin |
+| `Achievements` | Otros logros desbloqueados. `Target: 0` = todos los demás. **No cuentan los de temporada** | Este plugin |
+| `Event` | Nunca se cumple solo: se da con `css_logro_give` desde otro plugin (p. ej. AdventCalendar) | Externo |
 
 **Al completar un recorrido** (solo el mapa principal, no los bonus):
 
@@ -216,6 +218,18 @@ WHERE u.SteamID = '7656119XXXXXXXXXX' ORDER BY u.UnlockedAt;
 | `FinishSync` | el sync del recorrido es de `Target` % o más |
 | `FinishStyle` | se usa un estilo distinto al normal, o el de `Style` si está puesto |
 | `FinishMaxJumps` | se salta `Target` veces o menos (no cuenta el salto para salir de la zona de inicio) |
+
+### Logros de temporada
+
+Cualquier logro puede llevar `ActiveFrom` / `ActiveTo` (columnas DATETIME de `ca_achievements`, hora local según
+`UtcOffsetHours`, por defecto 1 = España en invierno). Fuera de esa ventana:
+
+- no se puede conseguir (no se evalúa);
+- no sale en la lista ni en el total `x/y`, salvo a quien ya lo tenga (sus puntos siguen contando);
+- nunca cuenta para los de tipo `Achievements` (Coleccionista / Completista), así quien llega después puede completarlos.
+
+`sql/navidad_2026.sql` añade 10 logros de Navidad (1 dic – 6 ene). Los de tipo `Event` (casillas del calendario,
+Nochebuena, Navidad) los da el plugin AdventCalendar con sus `AchievementHooks`.
 
 ## Cómo funciona por dentro
 

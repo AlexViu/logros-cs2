@@ -30,6 +30,9 @@ public enum AchievementType
     FinishSync,       // con un sync de Target % o más
     FinishStyle,      // con un estilo distinto al normal (o con el de Style)
     FinishMaxJumps,   // saltando como mucho Target veces
+
+    // Externos: solo se dan con css_logro_give (p. ej. desde el plugin AdventCalendar)
+    Event,
 }
 
 public class AchievementDef
@@ -52,7 +55,14 @@ public class AchievementDef
     [JsonPropertyName("RewardCredits")] public int RewardCredits { get; set; }
     [JsonPropertyName("RewardItems")] public string RewardItems { get; set; } = "";
 
+    // Temporada (hora local del servidor, ver UtcOffsetHours): fuera de [ActiveFrom, ActiveTo] no se puede conseguir y solo
+    // sale en la lista a quien ya lo tenga. Los logros de temporada no cuentan para los de tipo Achievements.
+    [JsonPropertyName("ActiveFrom")] public DateTime? ActiveFrom { get; set; }
+    [JsonPropertyName("ActiveTo")] public DateTime? ActiveTo { get; set; }
+
     public bool HasReward => RewardCredits > 0 || !string.IsNullOrWhiteSpace(RewardItems);
+    public bool IsSeasonal => ActiveFrom is not null || ActiveTo is not null;
+    public bool IsActive(DateTime localNow) => (ActiveFrom is null || localNow >= ActiveFrom) && (ActiveTo is null || localNow <= ActiveTo);
 }
 
 public class AchievementsConfig : BasePluginConfig
@@ -89,13 +99,19 @@ public class AchievementsConfig : BasePluginConfig
     [JsonPropertyName("StoreRewards")] public bool StoreRewards { get; set; } = true;
     // Si ya tiene el producto de la recompensa, se le da su precio en créditos. false = no se le da nada.
     [JsonPropertyName("DuplicateItemAsCredits")] public bool DuplicateItemAsCredits { get; set; } = true;
+    // Desfase de la hora local respecto a UTC para las ventanas de temporada (el contenedor no trae zonas horarias). España en invierno = 1.
+    [JsonPropertyName("UtcOffsetHours")] public double UtcOffsetHours { get; set; } = 1;
 
     [JsonPropertyName("Achievements")] public List<AchievementDef> Achievements { get; set; } = Defaults();
 
     static AchievementDef A(string id, string name, string desc, AchievementType type, double target, int points, bool hidden = false, string map = "",
-        int credits = 0, string items = "") =>
+        int credits = 0, string items = "", string? from = null, string? to = null) =>
         new() { Id = id, Name = name, Description = desc, Type = type, Target = target, Points = points, Hidden = hidden, Map = map,
-                RewardCredits = credits, RewardItems = items };
+                RewardCredits = credits, RewardItems = items,
+                ActiveFrom = from is null ? null : DateTime.Parse(from), ActiveTo = to is null ? null : DateTime.Parse(to) };
+
+    // Navidad 2026: del 1 de diciembre a Reyes. Los "Event" los da el plugin AdventCalendar al abrir casillas.
+    const string XmasFrom = "2026-12-01 00:00", XmasTo = "2027-01-06 23:59:59";
 
     public static List<AchievementDef> Defaults() => new()
     {
@@ -144,5 +160,16 @@ public class AchievementsConfig : BasePluginConfig
 
         A("ach_10", "Coleccionista", "Desbloquea 10 logros", AchievementType.Achievements, 10, 20, credits: 1000),
         A("ach_all", "Completista", "Desbloquea todos los demás logros", AchievementType.Achievements, 0, 200, hidden: true, credits: 10000, items: "Goku"),
+
+        A("xmas_advent_1", "Primera casilla", "Abre tu primera casilla del calendario de adviento", AchievementType.Event, 1, 10, credits: 200, from: XmasFrom, to: XmasTo),
+        A("xmas_advent_10", "Espíritu navideño", "Abre 10 casillas del calendario de adviento", AchievementType.Event, 1, 30, credits: 1000, from: XmasFrom, to: XmasTo),
+        A("xmas_advent_25", "Calendario completo", "Abre las 25 casillas del calendario de adviento", AchievementType.Event, 1, 100, credits: 5000, from: XmasFrom, to: XmasTo),
+        A("xmas_nochebuena", "Nochebuena", "Juega en el servidor el 24 de diciembre", AchievementType.Event, 1, 15, credits: 500, from: XmasFrom, to: XmasTo),
+        A("xmas_navidad", "¡Feliz Navidad!", "Juega en el servidor el 25 de diciembre", AchievementType.Event, 1, 15, credits: 500, from: XmasFrom, to: XmasTo),
+        A("xmas_course", "Recorrido navideño", "Completa un recorrido durante las fiestas", AchievementType.FinishUnder, 999999, 10, credits: 300, from: XmasFrom, to: XmasTo),
+        A("xmas_marathon", "Atracón de turrón", "Completa 10 recorridos sin salir del servidor durante las fiestas", AchievementType.SessionFinishes, 10, 25, credits: 1000, from: XmasFrom, to: XmasTo),
+        A("xmas_top3", "Regalo de podio", "Termina un mapa entre los 3 mejores tiempos durante las fiestas", AchievementType.FinishTop, 3, 40, credits: 1500, from: XmasFrom, to: XmasTo),
+        A("xmas_nochevieja", "Último salto del año", "Completa un recorrido en Nochevieja", AchievementType.FinishUnder, 999999, 30, hidden: true, credits: 1000, from: "2026-12-31 00:00", to: "2026-12-31 23:59:59"),
+        A("xmas_reyes", "Regalo de Reyes", "Completa un recorrido el día de Reyes", AchievementType.FinishUnder, 999999, 30, hidden: true, credits: 1000, from: "2027-01-06 00:00", to: "2027-01-06 23:59:59"),
     };
 }

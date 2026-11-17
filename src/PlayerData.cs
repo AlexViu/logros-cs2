@@ -65,10 +65,11 @@ public static class Progress
             AchievementType.PlaytimeMinutes => d.PlaytimeSec / 60,
             AchievementType.Connections => d.Connections,
             AchievementType.SessionFinishes => d.SessionFinishes,
-            AchievementType.Achievements => defs.Count(x => x.Id != a.Id && d.Unlocked.ContainsKey(x.Id)),
+            AchievementType.Achievements => defs.Count(x => x.Id != a.Id && !x.IsSeasonal && d.Unlocked.ContainsKey(x.Id)),
             _ => d.Unlocked.ContainsKey(a.Id) ? 1 : 0,
         };
-        if (a.Type == AchievementType.Achievements && target <= 0) target = Math.Max(1, defs.Count - 1);
+        // Los de temporada no cuentan: si no, quien llegue después nunca podría completar "todos".
+        if (a.Type == AchievementType.Achievements && target <= 0) target = Math.Max(1, defs.Count(x => x.Id != a.Id && !x.IsSeasonal));
         if (IsFinishCondition(a.Type)) target = 1;
         return (value, target);
     }

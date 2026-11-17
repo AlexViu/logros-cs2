@@ -324,6 +324,7 @@ public partial class CourseAchievements : BasePlugin, IPluginConfig<Achievements
             foreach (var a in Defs)
             {
                 if (d.Unlocked.ContainsKey(a.Id)) continue;
+                if (!a.IsActive(LocalNow)) continue; // fuera de su temporada
                 if (only is { } o && a.Type != o && a.Type != AchievementType.Achievements) continue;
                 bool met;
                 if (Progress.IsFinishCondition(a.Type)) met = finish is not null && Progress.FinishMeets(a, finish);
@@ -387,16 +388,29 @@ public partial class CourseAchievements : BasePlugin, IPluginConfig<Achievements
         }
     }
 
+    /// <summary>Hora local para las ventanas de temporada.</summary>
+    DateTime LocalNow => DateTime.UtcNow.AddHours(Config.UtcOffsetHours);
+
+    /// <summary>
+    /// Logros que se le enseñan a un jugador: los permanentes, los de temporada en curso y los de temporadas pasadas que ya tenga.
+    /// </summary>
+    List<AchievementDef> ListFor(PlayerData? d)
+    {
+        var now = LocalNow;
+        return Defs.Where(a => !a.IsSeasonal || a.IsActive(now) || (d is not null && d.Unlocked.ContainsKey(a.Id))).ToList();
+    }
+
     (int Count, int Total, int Score) Summary(PlayerData d)
     {
-        var defs = Defs;
-        var done = defs.Where(a => d.Unlocked.ContainsKey(a.Id)).ToList();
-        return (done.Count, defs.Count, done.Sum(a => a.Points));
+        var listed = ListFor(d);
+        var done = listed.Where(a => d.Unlocked.ContainsKey(a.Id)).ToList();
+        // Los puntos cuentan todos los conseguidos, también los de temporadas que ya no salen en la lista.
+        return (done.Count, listed.Count, Defs.Where(a => d.Unlocked.ContainsKey(a.Id)).Sum(a => a.Points));
     }
 
     /// <summary>El logro visible y pendiente al que más le falta poco (por porcentaje).</summary>
     AchievementDef? NextFor(PlayerData d) => Defs
-        .Where(a => !a.Hidden && !d.Unlocked.ContainsKey(a.Id))
+        .Where(a => !a.Hidden && !d.Unlocked.ContainsKey(a.Id) && a.IsActive(LocalNow) && a.Type != AchievementType.Event)
         .Select(a => (a, p: Progress.Of(a, d, Defs)))
         .OrderByDescending(x => x.p.Value / x.p.Target)
         .ThenBy(x => x.a.Target)
