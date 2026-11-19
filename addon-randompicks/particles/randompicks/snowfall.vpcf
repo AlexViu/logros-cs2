@@ -1,0 +1,83 @@
+<!-- kv3 encoding:text:version{e21c7f3c-8a33-41c5-9977-a76d3a32aa0d} format:vpcf26:version{26288658-411e-4f14-b698-2e1e5d00dec6} -->
+{
+	_class = "CParticleSystemDefinition"
+	m_bShouldHitboxesFallbackToRenderBounds = false
+	m_nMaxParticles = 1500
+	m_flConstantRadius = 2.0
+	m_ConstantColor = [ 255, 255, 255, 230 ]
+	m_BoundingBoxMin = [ -700.0, -700.0, -200.0 ]
+	m_BoundingBoxMax = [ 700.0, 700.0, 500.0 ]
+	m_flCullRadius = -1.0
+	m_Renderers =
+	[
+		{
+			_class = "C_OP_RenderSprites"
+			m_nOrientationType = "PARTICLE_ORIENTATION_SCREEN_ALIGNED"
+			m_vecTexturesInput =
+			[
+				{
+					m_hTexture = resource:"materials/particle/snow.vtex"
+				},
+			]
+			m_flOverbrightFactor = 1.0
+			m_bBlendFramesSeq0 = false
+		},
+	]
+	m_Operators =
+	[
+		{
+			_class = "C_OP_BasicMovement"
+			m_Gravity = [ 0.0, 0.0, 0.0 ]
+		},
+		{
+			_class = "C_OP_Decay"
+		},
+		{
+			_class = "C_OP_FadeInSimple"
+			m_flFadeInTime = 0.15
+		},
+		{
+			_class = "C_OP_FadeOutSimple"
+			m_flFadeOutTime = 0.2
+		},
+	]
+	m_Initializers =
+	[
+		{
+			_class = "C_INIT_CreateWithinBox"
+			m_vecMin = [ -600.0, -600.0, 150.0 ]
+			m_vecMax = [ 600.0, 600.0, 400.0 ]
+		},
+		{
+			_class = "C_INIT_RandomLifeTime"
+			m_fLifetimeMin = 5.0
+			m_fLifetimeMax = 7.0
+		},
+		{
+			_class = "C_INIT_RandomRadius"
+			m_flRadiusMin = 1.0
+			m_flRadiusMax = 2.5
+		},
+		{
+			_class = "C_INIT_VelocityRandom"
+			m_LocalCoordinateSystemSpeedMin = [ -12.0, -12.0, -70.0 ]
+			m_LocalCoordinateSystemSpeedMax = [ 12.0, 12.0, -45.0 ]
+		},
+		{
+			_class = "C_INIT_RandomAlpha"
+			m_nAlphaMin = 160
+			m_nAlphaMax = 255
+		},
+	]
+	m_Emitters =
+	[
+		{
+			_class = "C_OP_ContinuousEmitter"
+			m_flEmitRate =
+			{
+				m_nType = "PF_TYPE_LITERAL"
+				m_flLiteralValue = 220.0
+			}
+		},
+	]
+}
