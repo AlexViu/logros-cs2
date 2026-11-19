@@ -40,24 +40,18 @@
 			_class = "C_OP_FadeOutSimple"
 			m_flFadeOutTime = 0.1
 		},
-		{
-			_class = "C_OP_WorldTraceConstraint"
-			m_nCollisionMode = "COLLISION_MODE_INITIAL_TRACE_DOWN"
-			m_CollisionGroupName = "DEBRIS"
-			m_bKillonContact = true
-		},
 	]
 	m_Initializers =
 	[
 		{
 			_class = "C_INIT_CreateWithinBox"
-			m_vecMin = [ -400.0, -400.0, 250.0 ]
-			m_vecMax = [ 400.0, 400.0, 450.0 ]
+			m_vecMin = [ -400.0, -400.0, 120.0 ]
+			m_vecMax = [ 400.0, 400.0, 380.0 ]
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 6.0
-			m_fLifetimeMax = 8.0
+			m_fLifetimeMin = 5.0
+			m_fLifetimeMax = 7.0
 		},
 		{
 			_class = "C_INIT_RandomRadius"
@@ -66,8 +60,8 @@
 		},
 		{
 			_class = "C_INIT_VelocityRandom"
-			m_LocalCoordinateSystemSpeedMin = [ -10.0, -10.0, -80.0 ]
-			m_LocalCoordinateSystemSpeedMax = [ 10.0, 10.0, -55.0 ]
+			m_LocalCoordinateSystemSpeedMin = [ -10.0, -10.0, -70.0 ]
+			m_LocalCoordinateSystemSpeedMax = [ 10.0, 10.0, -45.0 ]
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
