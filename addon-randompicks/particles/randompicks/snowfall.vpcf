@@ -2,11 +2,11 @@
 {
 	_class = "CParticleSystemDefinition"
 	m_bShouldHitboxesFallbackToRenderBounds = false
-	m_nMaxParticles = 1500
+	m_nMaxParticles = 1000
 	m_flConstantRadius = 2.0
 	m_ConstantColor = [ 255, 255, 255, 230 ]
-	m_BoundingBoxMin = [ -700.0, -700.0, -200.0 ]
-	m_BoundingBoxMax = [ 700.0, 700.0, 500.0 ]
+	m_BoundingBoxMin = [ -500.0, -500.0, -300.0 ]
+	m_BoundingBoxMax = [ 500.0, 500.0, 500.0 ]
 	m_flCullRadius = -1.0
 	m_Renderers =
 	[
@@ -38,20 +38,26 @@
 		},
 		{
 			_class = "C_OP_FadeOutSimple"
-			m_flFadeOutTime = 0.2
+			m_flFadeOutTime = 0.1
+		},
+		{
+			_class = "C_OP_WorldTraceConstraint"
+			m_nCollisionMode = "COLLISION_MODE_INITIAL_TRACE_DOWN"
+			m_CollisionGroupName = "DEBRIS"
+			m_bKillonContact = true
 		},
 	]
 	m_Initializers =
 	[
 		{
 			_class = "C_INIT_CreateWithinBox"
-			m_vecMin = [ -600.0, -600.0, 150.0 ]
-			m_vecMax = [ 600.0, 600.0, 400.0 ]
+			m_vecMin = [ -400.0, -400.0, 250.0 ]
+			m_vecMax = [ 400.0, 400.0, 450.0 ]
 		},
 		{
 			_class = "C_INIT_RandomLifeTime"
-			m_fLifetimeMin = 5.0
-			m_fLifetimeMax = 7.0
+			m_fLifetimeMin = 6.0
+			m_fLifetimeMax = 8.0
 		},
 		{
 			_class = "C_INIT_RandomRadius"
@@ -60,8 +66,8 @@
 		},
 		{
 			_class = "C_INIT_VelocityRandom"
-			m_LocalCoordinateSystemSpeedMin = [ -12.0, -12.0, -70.0 ]
-			m_LocalCoordinateSystemSpeedMax = [ 12.0, 12.0, -45.0 ]
+			m_LocalCoordinateSystemSpeedMin = [ -10.0, -10.0, -80.0 ]
+			m_LocalCoordinateSystemSpeedMax = [ 10.0, 10.0, -55.0 ]
 		},
 		{
 			_class = "C_INIT_RandomAlpha"
@@ -76,7 +82,7 @@
 			m_flEmitRate =
 			{
 				m_nType = "PF_TYPE_LITERAL"
-				m_flLiteralValue = 220.0
+				m_flLiteralValue = 100.0
 			}
 		},
 	]
